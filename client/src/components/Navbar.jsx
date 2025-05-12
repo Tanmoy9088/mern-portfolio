@@ -9,7 +9,7 @@ function Navbar() {
     <nav className="fixed top-0 w-full bg-gray-300 shadow-md z-50">
       <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
         {/* Logo */}
-        <div className="text-xl font-bold text-gray-800">MyPortfolio</div>
+        <div className="text-xl font-bold text-gray-800">Tanmoy9088</div>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-6">
