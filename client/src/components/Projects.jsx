@@ -1,6 +1,5 @@
 import React from "react";
 import "./Projects.css"; // We'll write the animation CSS here
-
 function Projects() {
   const projects = [
     {
@@ -21,11 +20,12 @@ function Projects() {
   ];
 
   return (
-    <section id="projects" className="projects-section relative py-24 px-6 text-white">
-      <div className="max-w-7xl mx-auto text-center relative z-10">
-        <h2 className="text-5xl font-extrabold mb-20">
-          My Projects
-        </h2>
+    <section
+      id="projects"
+      className="projects-section relative py-24 px-6 text-white"
+    >
+      <div className="h-screen max-w-7xl mx-auto text-center relative z-10">
+        <h2 className="text-5xl font-extrabold mb-20">My Projects</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {projects.map((project) => (
             <div

@@ -1,15 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
 import { HiMenu, HiX } from 'react-icons/hi';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <nav className="fixed top-0 w-full bg-gray-300 shadow-md z-50">
-      <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+    <nav
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        isScrolled
+          ? 'bg-white/70 backdrop-blur-md shadow-md'
+          : 'bg-transparent'
+      }`}
+    >
+      <div
+        className={`max-w-7xl mx-auto px-4 ${
+          isScrolled ? 'py-3' : 'py-5'
+        } flex justify-between items-center transition-all duration-300`}
+      >
         {/* Logo */}
-        <div className="text-xl font-bold text-gray-800">Tanmoy9088</div>
+        <div className={`text-2xl dancing-script-navbar font-bold ${isScrolled ? 'text-yellow-600' : 'text-black'}`}>
+          Tanmoy Das
+        </div>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-6">
@@ -22,7 +44,9 @@ function Navbar() {
               duration={500}
               offset={-70}
               activeClass="active"
-              className="cursor-pointer nav-link hover:text-blue-700 transition"
+              className={`cursor-pointer nav-link font-medium transition-colors duration-300 hover:text-blue-600 ${
+                isScrolled ? 'text-yellow-400' : 'text-white'
+              }`}
             >
               {section.charAt(0).toUpperCase() + section.slice(1)}
             </Link>
@@ -33,16 +57,16 @@ function Navbar() {
         <div className="md:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-gray-800 focus:outline-none"
+            className={`${isScrolled ? 'text-gray-800' : 'text-white'}`}
           >
             {isOpen ? <HiX className="h-6 w-6" /> : <HiMenu className="h-6 w-6" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Dropdown */}
       {isOpen && (
-        <div className="md:hidden px-4 pb-4 bg-gray-300 space-y-3">
+        <div className={`md:hidden px-4 pb-4 ${isScrolled ? 'bg-white/90' : 'bg-gray-900/90'} backdrop-blur-sm`}>
           {['home', 'about', 'projects', 'contact'].map((section) => (
             <Link
               key={section}
@@ -52,7 +76,9 @@ function Navbar() {
               duration={500}
               offset={-70}
               onClick={() => setIsOpen(false)}
-              className="block text-gray-800 font-medium cursor-pointer hover:text-blue-700 transition"
+              className={`block py-2 text-lg font-medium transition-colors ${
+                isScrolled ? 'text-gray-800 hover:text-blue-600' : 'text-white hover:text-yellow-300'
+              }`}
             >
               {section.charAt(0).toUpperCase() + section.slice(1)}
             </Link>

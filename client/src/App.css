@@ -60,3 +60,15 @@
   color: #888;
 }
 
+@keyframes waveMotion {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-10px);
+  }
+}
+
+.animate-waveMotion {
+  animation: waveMotion 6s ease-in-out infinite;
+}
