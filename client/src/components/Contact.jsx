@@ -1,36 +1,35 @@
-import axios from "axios";
-// import { set } from "mongoose";
 import React, { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 function Contact() {
   const [status, setStatus] = useState(""); // success | error | loading
-const [name, setName] = useState("");
-const [email, setEmail] = useState(""); 
-const [message, setMessage] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-
-
     setStatus("loading");
 
+    const serviceID = "service_p8a9ych";
+    const templateID = "template_od3s9yr";
+    const publicKey = "ksda-3eTg5R7GxfP4";
+
+    const templateParams = {
+      user_name: name,
+      user_email: email,
+      message: message,
+    };
+
     try {
-      const response = await axios.post("http://localhost:5000/api/contact", {
-        name,
-        email,
-        message,
-      });
-      
-      if (response.status === 201) {
-        setStatus("success");
-       setName("");
-        setEmail("");
-        setMessage("");
-      } else {
-        setStatus("error");
-      }
-    } catch (err) {
-      console.error(err);
+      const result = await emailjs.send(serviceID, templateID, templateParams, publicKey);
+      console.log(result.text);
+      setStatus("success");
+      setName("");
+      setEmail("");
+      setMessage("");
+    } catch (error) {
+      console.error(error);
       setStatus("error");
     }
 
@@ -49,7 +48,7 @@ const [message, setMessage] = useState("");
         <form onSubmit={handleSubmit} className="space-y-6">
           <input
             type="text"
-            name="name"
+            name="user_name"
             placeholder="Your Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -58,7 +57,7 @@ const [message, setMessage] = useState("");
           />
           <input
             type="email"
-            name="_replyto"
+            name="user_email"
             placeholder="Your Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
