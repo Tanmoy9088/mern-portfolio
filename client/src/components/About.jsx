@@ -91,7 +91,7 @@ function About() {
       {/* Download Resume Button */}
       <div className="mt-16 text-center">
         <a
-          href="../src/assets/WebDevResume5.pdf"
+          href="../public/WebDevResume5.pdf"
           className="inline-block bg-yellow-400 text-black py-3 px-6 rounded-full font-semibold transition hover:bg-yellow-500"
         >
         View My Resume
