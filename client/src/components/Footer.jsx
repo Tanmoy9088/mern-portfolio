@@ -22,7 +22,7 @@ function Footer() {
   return (
     <footer className="relative bg-gray-900 text-white pt-24 pb-10 overflow-hidden">
       {/* 🌊 Wavy Top Divider */}
-      <div className="absolute top-0 left-0 w-full overflow-hidden leading-none rotate-180">
+      {/* <div className="absolute top-0 left-0 w-full overflow-hidden leading-none rotate-180">
         <svg
           className="relative block w-full h-20"
           xmlns="http://www.w3.org/2000/svg"
@@ -35,7 +35,7 @@ function Footer() {
             d="M0,224L48,202.7C96,181,192,139,288,149.3C384,160,480,224,576,229.3C672,235,768,181,864,144C960,107,1056,85,1152,96C1248,107,1344,149,1392,170.7L1440,192V0H0Z"
           ></path>
         </svg>
-      </div>
+      </div>  */}
 
       {/* ✨ Floating Dots Animation */}
       <ul className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
@@ -58,7 +58,7 @@ function Footer() {
         <h2 className="text-3xl font-bold mb-4 text-yellow-400">
           Let's Connect
         </h2>
-        <p className="text-gray-400 max-w-xl mx-auto mb-6">
+        <p className="text-gray-300 max-w-xl mx-auto mb-6">
           I’m open to new opportunities, collaborations, or just a friendly
           chat. Reach out!
         </p>
@@ -98,7 +98,7 @@ function Footer() {
         </div>
 
         {/* Copyright */}
-        <p className="text-sm text-gray-500">
+        <p className="text-sm text-gray-400">
           © {new Date().getFullYear()}{" "}
           <span className="font-semibold text-white">Tanmoy9088</span>. Built
           with ❤️ using React & Tailwind CSS.
