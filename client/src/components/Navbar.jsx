@@ -19,7 +19,7 @@ function Navbar() {
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/70 backdrop-blur-md shadow-md'
+          ? 'bg-white/80 backdrop-blur-md shadow-md'
           : 'bg-transparent'
       }`}
     >
@@ -29,8 +29,8 @@ function Navbar() {
         } flex justify-between items-center transition-all duration-300`}
       >
         {/* Logo */}
-        <div className={`text-2xl dancing-script-navbar font-bold ${isScrolled ? 'text-yellow-600' : 'text-black'}`}>
-          Tanmoy Das
+        <div className={`text-2xl dancing-script-navbar font-bold ${isScrolled ? 'text-yellow-600' : 'text-blue-200'}`}>
+          Tanmoy Das 
         </div>
 
         {/* Desktop Menu */}
