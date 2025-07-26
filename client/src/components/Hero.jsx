@@ -41,7 +41,7 @@ function Hero() {
         <div>
           <img
             className=" w-full h-full object-cover mb-6"
-            src="./public/Portfolio.png"
+            src="/Portfolio.png"
             alt="Tanmoy's Image"
           />
         </div>
