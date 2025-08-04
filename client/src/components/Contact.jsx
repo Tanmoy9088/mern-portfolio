@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 
 function Contact() {
@@ -7,6 +7,16 @@ function Contact() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
+   const [isScrolled, setIsScrolled] = useState(false);
+    
+      useEffect(() => {
+        const handleScroll = () => {
+          setIsScrolled(window.scrollY > 400);
+        };
+    
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+      }, []);
   const handleSubmit = async (event) => {
     event.preventDefault();
     setStatus("loading");
@@ -38,7 +48,7 @@ function Contact() {
 
   return (
     <section
-      id="contact"
+      id="CONTACT"
       className="relative py-24 px-4 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white"
     >
       <div className="max-w-2xl mx-auto backdrop-blur-md bg-white/5 border border-white/10 p-10 rounded-3xl shadow-xl">

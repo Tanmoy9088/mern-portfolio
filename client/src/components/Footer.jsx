@@ -69,7 +69,7 @@ function Footer() {
             href="https://github.com/Tanmoy9088"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white hover:text-yellow-400 transition-transform transform hover:scale-110"
+            className="text-white hover:text-black hover:bg-white hover:rounded-4xl transition-transform transform hover:scale-110"
           >
             <FaGithub />
           </a>
@@ -77,7 +77,7 @@ function Footer() {
             href="https://linkedin.com/in/tanmoy9088"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-500 hover:text-yellow-400 transition-transform transform hover:scale-110"
+            className="text-blue-500 hover:text-white transition-transform transform hover:scale-110"
           >
             <FaLinkedinIn />
           </a>
@@ -85,15 +85,15 @@ function Footer() {
             href="https://twitter.com/Tanmoy105Das"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sky-400 hover:text-yellow-400 transition-transform transform hover:scale-110"
+            className="text-sky-400 hover:text-white transition-transform transform hover:scale-110"
           >
             <FaTwitter />
           </a>
           <a
             href="mailto:tanmoyd9088@gmail.com"
-            className="text-red-500 hover:text-yellow-400 transition-transform transform hover:scale-110"
+            className="text-red-500 hover:text-white hover:bg-red-500 hover:margin-0 hover:p-0 transition-transform transform hover:scale-110"
           >
-            <MdEmail />
+            < MdEmail />
           </a>
         </div>
 

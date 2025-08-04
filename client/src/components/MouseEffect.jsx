@@ -18,7 +18,7 @@ function MouseEffect() {
     <div
       className="fixed inset-0 top-0 left-0 w-full h-full pointer-events-none z-0"
       style={{
-        background: `radial-gradient(600px at ${position.x}px ${position.y}px, rgba(255, 255, 153, 0.1), transparent 80%)`,
+        background: `radial-gradient(600px at ${position.x}px ${position.y}px, rgba(255, 255, 153, 0.3), transparent 80%)`,
 
         transition: "background 0.1s ease",
       }}

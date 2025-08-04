@@ -17,20 +17,35 @@ function Projects() {
       description: "Yet another cool project",
       link: "https://guess-my-number-xlak.onrender.com",
     },
+    {
+      name: "Project 4",
+      description: "Yet another cool project",
+      link: "https://guess-my-number-xlak.onrender.com",
+    },
+    {
+      name: "Project 5",
+      description: "Yet another cool project",
+      link: "https://guess-my-number-xlak.onrender.com",
+    },
+    {
+      name: "Project 6",
+      description: "Yet another cool project",
+      link: "https://guess-my-number-xlak.onrender.com",
+    },
   ];
 
   return (
     <section
-      id="projects"
+      id="PROJECTS"
       className="projects-section relative py-24 px-6 text-white"
     >
-      <div className="h-screen max-w-7xl mx-auto text-center relative z-10">
+      <div className="min-h-screen max-w-7xl mx-auto text-center relative z-10">
         <h2 className="text-5xl font-extrabold mb-20">My Projects</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {projects.map((project) => (
             <div
               key={project.name}
-              className="bg-white/10 backdrop-blur-md p-8 rounded-3xl shadow-2xl transition-transform transform hover:scale-105 duration-300 hover:shadow-xl border border-white/20"
+              className="bg-white/10 overflow-auto backdrop-blur-md p-8 rounded-3xl shadow-2xl transition-transform transform hover:scale-105 duration-300 hover:shadow-xl border border-white/20"
             >
               <h3 className="text-2xl font-semibold text-white mb-4">
                 {project.name}

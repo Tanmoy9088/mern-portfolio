@@ -52,3 +52,28 @@
   position: relative;
   z-index: 100;
  }
+ @keyframes zoomSlow {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+.animate-zoomSlow {
+  animation: zoomSlow 20s ease-in-out infinite alternate;
+}
+/* Hero.css */
+@keyframes zoomIn {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+.bg-zoom-hero {
+  animation: zoomIn 20s ease-in-out infinite alternate;
+}
