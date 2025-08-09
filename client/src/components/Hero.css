@@ -43,7 +43,7 @@
 .float-art {
   animation: subtleFloat 6s ease-in-out infinite;
 }
- .hero-bg{
+.hero-bg {
   background: linear-gradient(135deg, #f3ec78, #af4261);
   background-size: cover;
   background-attachment: fixed;
@@ -51,8 +51,8 @@
   animation: bgGradient 15s ease infinite;
   position: relative;
   z-index: 100;
- }
- @keyframes zoomSlow {
+}
+@keyframes zoomSlow {
   0% {
     transform: scale(1);
   }
@@ -76,4 +76,48 @@
 
 .bg-zoom-hero {
   animation: zoomIn 20s ease-in-out infinite alternate;
+}
+@keyframes gradient-move {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px #facc15;
+  }
+  50% {
+    box-shadow: 0 0 40px #facc15;
+  }
+}
+
+.animate-gradient-move {
+  background-size: 300% 300%;
+  animation: gradient-move 8s ease infinite;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s infinite;
 }

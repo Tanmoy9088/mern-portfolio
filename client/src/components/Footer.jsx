@@ -108,7 +108,7 @@ function Footer() {
       {showTopButton && (
         <div className="fixed bottom-6 right-6 z-50">
           <a
-            href="#home"
+            href="#HOME"
             className="group bg-yellow-400 hover:bg-yellow-500 text-black p-3 rounded-full shadow-xl transition-transform transform hover:scale-110"
             aria-label="Back to top"
           >

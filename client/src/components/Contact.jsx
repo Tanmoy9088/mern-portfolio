@@ -1,22 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
 
 function Contact() {
-  const [status, setStatus] = useState(""); // success | error | loading
+  const [status, setStatus] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
-   const [isScrolled, setIsScrolled] = useState(false);
-    
-      useEffect(() => {
-        const handleScroll = () => {
-          setIsScrolled(window.scrollY > 400);
-        };
-    
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-      }, []);
   const handleSubmit = async (event) => {
     event.preventDefault();
     setStatus("loading");
@@ -25,84 +15,98 @@ function Contact() {
     const templateID = "template_od3s9yr";
     const publicKey = "ksda-3eTg5R7GxfP4";
 
-    const templateParams = {
-      user_name: name,
-      user_email: email,
-      message: message,
-    };
-
     try {
-      const result = await emailjs.send(serviceID, templateID, templateParams, publicKey);
-      console.log(result.text);
+      await emailjs.send(
+        serviceID,
+        templateID,
+        {
+          user_name: name,
+          user_email: email,
+          message: message,
+        },
+        publicKey
+      );
+
       setStatus("success");
       setName("");
       setEmail("");
       setMessage("");
     } catch (error) {
-      console.error(error);
       setStatus("error");
     }
 
-    setTimeout(() => setStatus(""), 5000);
+    setTimeout(() => setStatus(""), 4000);
   };
 
   return (
     <section
       id="CONTACT"
-      className="relative py-24 px-4 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white"
+      className="relative min-h-screen flex items-center justify-center px-6 py-20 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden"
     >
-      <div className="max-w-2xl mx-auto backdrop-blur-md bg-white/5 border border-white/10 p-10 rounded-3xl shadow-xl">
-        <h2 className="text-4xl font-extrabold text-center mb-10 tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-500">
-          Get In Touch
-        </h2>
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <input
-            type="text"
-            name="user_name"
-            placeholder="Your Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-            className="w-full px-5 py-3 bg-white/10 text-white rounded-xl border border-white/20 focus:outline-none focus:ring-2 focus:ring-yellow-400 placeholder-white/70 transition"
-          />
-          <input
-            type="email"
-            name="user_email"
-            placeholder="Your Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            className="w-full px-5 py-3 bg-white/10 text-white rounded-xl border border-white/20 focus:outline-none focus:ring-2 focus:ring-yellow-400 placeholder-white/70 transition"
-          />
-          <textarea
-            name="message"
-            placeholder="Your Message"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            required
-            rows="5"
-            className="w-full px-5 py-3 bg-white/10 text-white rounded-xl border border-white/20 focus:outline-none focus:ring-2 focus:ring-yellow-400 placeholder-white/70 transition resize-none"
-          ></textarea>
-          <button
-            type="submit"
-            disabled={status === "loading"}
-            className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-3 px-6 rounded-full shadow-md transition duration-300 hover:scale-105 disabled:opacity-60"
-          >
-            {status === "loading" ? "Sending..." : "Send Message"}
-          </button>
-        </form>
+      {/* Subtle floating glow elements */}
+      <div className="absolute top-10 left-10 w-72 h-72 bg-pink-500/20 blur-3xl rounded-full animate-pulse"></div>
+      <div className="absolute bottom-10 right-10 w-72 h-72 bg-yellow-500/20 blur-3xl rounded-full animate-pulse"></div>
 
-        {/* Status message */}
-        {status === "success" && (
-          <p className="mt-4 text-green-400 text-center">
-            Message sent successfully!
+      <div className="relative z-10 max-w-6xl w-full grid md:grid-cols-2 gap-12 items-center">
+        {/* Left: Heading */}
+        <div className="text-white space-y-6">
+          <h2 className="text-5xl md:text-6xl font-bold leading-tight">
+            Let’s Create <br /> Something Amazing
+          </h2>
+          <p className="text-gray-400 text-lg max-w-md">
+            Whether you have a question, want to start a project, or simply want
+            to connect — feel free to drop me a message.
           </p>
-        )}
-        {status === "error" && (
-          <p className="mt-4 text-red-400 text-center">
-            Failed to send. Try again later.
-          </p>
-        )}
+        </div>
+
+        {/* Right: Form */}
+        <div className="backdrop-blur-md bg-white/10 border border-white/20 p-8 rounded-2xl shadow-lg">
+          <form onSubmit={handleSubmit} className="space-y-5">
+            <input
+              type="text"
+              placeholder="Your Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+              className="w-full px-5 py-3 bg-white/10 text-white rounded-lg border border-white/20 focus:outline-none focus:ring-2 focus:ring-pink-500 transition placeholder-gray-300"
+            />
+            <input
+              type="email"
+              placeholder="Your Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="w-full px-5 py-3 bg-white/10 text-white rounded-lg border border-white/20 focus:outline-none focus:ring-2 focus:ring-pink-500 transition placeholder-gray-300"
+            />
+            <textarea
+              placeholder="Your Message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              required
+              rows="5"
+              className="w-full px-5 py-3 bg-white/10 text-white rounded-lg border border-white/20 focus:outline-none focus:ring-2 focus:ring-pink-500 transition placeholder-gray-300 resize-none"
+            ></textarea>
+            <button
+              type="submit"
+              disabled={status === "loading"}
+              className="w-full bg-gradient-to-r from-yellow-400 to-pink-500 hover:opacity-90 text-black font-semibold py-3 rounded-lg shadow-lg transition-transform transform hover:scale-105 disabled:opacity-60"
+            >
+              {status === "loading" ? "Sending..." : "Send Message"}
+            </button>
+          </form>
+
+          {/* Status messages */}
+          {status === "success" && (
+            <p className="mt-4 text-green-400 text-center">
+              Message sent successfully!
+            </p>
+          )}
+          {status === "error" && (
+            <p className="mt-4 text-red-400 text-center">
+              Failed to send. Try again later.
+            </p>
+          )}
+        </div>
       </div>
     </section>
   );
