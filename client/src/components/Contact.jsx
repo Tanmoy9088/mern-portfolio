@@ -41,26 +41,26 @@ function Contact() {
   return (
     <section
       id="CONTACT"
-      className="relative min-h-screen flex items-center justify-center px-6 py-20 bg-gradient-to-br from-black via-gray-900 to-black overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center px-6 py-20 bg-[#cfcece] overflow-hidden"
     >
       {/* Subtle floating glow elements */}
-      <div className="absolute top-10 left-10 w-72 h-72 bg-pink-500/20 blur-3xl rounded-full animate-pulse"></div>
-      <div className="absolute bottom-10 right-10 w-72 h-72 bg-yellow-500/20 blur-3xl rounded-full animate-pulse"></div>
+      <div className="absolute top-10 left-10 w-72 h-72 bg-pink-300/20 blur-3xl rounded-full animate-pulse"></div>
+      <div className="absolute bottom-10 right-10 w-72 h-72 bg-yellow-300/20 blur-3xl rounded-full animate-pulse"></div>
 
       <div className="relative z-10 max-w-6xl w-full grid md:grid-cols-2 gap-12 items-center">
         {/* Left: Heading */}
-        <div className="text-white space-y-6">
-          <h2 className="text-5xl md:text-6xl font-bold leading-tight">
+        <div className="text-[#122620] space-y-6">
+          <h1 className="md:text-6xl font-bold leading-tight">
             Let’s Create <br /> Something Amazing
-          </h2>
-          <p className="text-gray-400 text-lg max-w-md">
+          </h1>
+          <p className="text-[#252222] max-w-md">
             Whether you have a question, want to start a project, or simply want
             to connect — feel free to drop me a message.
           </p>
         </div>
 
         {/* Right: Form */}
-        <div className="backdrop-blur-md bg-white/10 border border-white/20 p-8 rounded-2xl shadow-lg">
+        <div className="backdrop-blur-md bg-[#aaaaaa] border border-white/20 p-8 rounded-2xl shadow-lg">
           <form onSubmit={handleSubmit} className="space-y-5">
             <input
               type="text"
@@ -68,7 +68,7 @@ function Contact() {
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
-              className="w-full px-5 py-3 bg-white/10 text-white rounded-lg border border-white/20 focus:outline-none focus:ring-2 focus:ring-pink-500 transition placeholder-gray-300"
+              className="w-full px-5 py-3 bg-white/10 text-[#8F959B] rounded-lg border border-white/20 focus:outline-none focus:ring-2 focus:ring-pink-500 transition placeholder-gray-300"
             />
             <input
               type="email"
@@ -76,7 +76,7 @@ function Contact() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full px-5 py-3 bg-white/10 text-white rounded-lg border border-white/20 focus:outline-none focus:ring-2 focus:ring-pink-500 transition placeholder-gray-300"
+              className="w-full px-5 py-3 bg-white/10 text-[#8F959B] rounded-lg border border-white/20 focus:outline-none focus:ring-2 focus:ring-pink-500 transition placeholder-gray-300"
             />
             <textarea
               placeholder="Your Message"
@@ -84,12 +84,12 @@ function Contact() {
               onChange={(e) => setMessage(e.target.value)}
               required
               rows="5"
-              className="w-full px-5 py-3 bg-white/10 text-white rounded-lg border border-white/20 focus:outline-none focus:ring-2 focus:ring-pink-500 transition placeholder-gray-300 resize-none"
+              className="w-full px-5 py-3 bg-white/10 text-[#8F959B] rounded-lg border border-white/20 focus:outline-none focus:ring-2 focus:ring-pink-500 transition placeholder-gray-300 resize-none"
             ></textarea>
             <button
               type="submit"
               disabled={status === "loading"}
-              className="w-full bg-gradient-to-r from-yellow-400 to-pink-500 hover:opacity-90 text-black font-semibold py-3 rounded-lg shadow-lg transition-transform transform hover:scale-105 disabled:opacity-60"
+              className="w-full bg-[#2464cb] hover:opacity-90 text-black font-semibold py-3 rounded-lg shadow-lg transition-transform transform hover:scale-105 disabled:opacity-60"
             >
               {status === "loading" ? "Sending..." : "Send Message"}
             </button>

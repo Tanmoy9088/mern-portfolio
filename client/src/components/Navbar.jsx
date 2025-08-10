@@ -15,10 +15,11 @@ function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 w-full h-16 z-50 transition-colors duration-300 ${
-        isScrolled
-          ? "bg-white/90 backdrop-blur-sm  hover:bg-[#d7d7f3e6] "
-          : "bg-transparent  hover:bg-[#29191bac] "
+      className={`fixed top-0 w-full h-16 z-50 transition-colors hover:bg-[#F9F6F0] text-[#e8e4da] duration-300 ${
+      isScrolled
+  ? "bg-[#C4AE78] backdrop-blur-sm hover:bg-[] text-[#e8e4da]"
+  : "bg-transparent hover:bg-[#f9f6f2] hover:text-[#e9e1d8] text-[#171515]"
+
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
@@ -28,12 +29,12 @@ function Navbar() {
             className="flex items-center"
             href="https://tanmoy9088-portfolio-3eym.vercel.app"
           >
-            <div className="w-10 h-10 inline-block rounded-sm overflow-hidden hover:scale-110 transition-transform hover:rotate-12">
-              <img src="/tanmoy_das_(3).png" alt="logo" />
+            <div className={` w-10 h-10 inline-block rounded-sm overflow-hidden hover:scale-110 transition-transform hover:rotate-12 ${ isScrolled? "rounded-lg":""}`}>
+              <img className={`${isScrolled?"rounded-4xl": ""}`} src="/tanmoy_das_(3).png" alt="logo" />
             </div>
             <div
               className={`text-2xl inline-block mx-2 font-light tracking-widest relative group cursor-pointer ${
-                isScrolled ? "text-gray-800" : "text-[#f8fbf88f]"
+                isScrolled ? "text-[#000000]" : "text-[#453304]"
               }`}
             >
               {[..."TANMOY"].map((letter, i) => (
@@ -53,7 +54,7 @@ function Navbar() {
         </div>
 
         {/* Desktop Menu */}
-        <div className="absolute right-5 top-5 hidden md:flex space-x-10 text-black font-light">
+        <div className="absolute right-5 top-5 hidden md:flex space-x-10 font-light">
           {["HOME", "BIO", "PROJECTS", "CONTACT"].map((section) => (
             <Link
               key={section}
@@ -64,7 +65,7 @@ function Navbar() {
               offset={-70}
               activeClass="active"
               className={`font-medium ${
-                isScrolled ? "text-gray-800" : "text-white"
+                isScrolled ? "text-[#171515]" : "text-[#67420d]"
               }`}
             >
               <AnimatedLink text={section} />
@@ -80,7 +81,7 @@ function Navbar() {
           {isOpen ? (
             <HiX className="h-6 w-6" />
           ) : (
-            <HiMenu className="h-6 w-6" />
+            <HiMenu className="h-6 w-6 hover:text-[#cca43b]" />
           )}
         </button>
       </div>

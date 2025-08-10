@@ -6,6 +6,7 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import MouseEffect from "./components/MouseEffect";
+import Chatbot from "./components/Chatbot";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Projects />
         <Contact />
         <Footer />
+        <Chatbot/>
       </main>
     </>
   );

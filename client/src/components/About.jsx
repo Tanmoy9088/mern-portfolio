@@ -21,7 +21,7 @@ function About() {
     },
     {
       icon: <SiExpress />,
-      color: "text-black",
+      color: "text-white",
       hover: "hover:bg-black",
       label: "Express.js",
     },
@@ -67,77 +67,81 @@ function About() {
     <section
       id="BIO"
       className={`py-24 px-6 transition-all duration-500 ${
-        isScrolled ? "bg-black text-[#0c90dc]" : "bg-black text-[#f4fbff]"
+        isScrolled
+          ? "bg-[#B8BBC1] text-[#171515]"
+          : "bg-gray-100 text-[#B3B3B3]"
       }`}
     >
       {/* Bio Header */}
       <div className="max-w-4xl mx-auto text-center mb-12">
         <span class="heading-sec__main">About Me</span>
-        <p className="text-lg font-clean font-light max-w-2xl mx-auto text-gray-300 leading-relaxed">
-          I'm a passionate full-stack MERN developer who loves crafting
-          immersive digital experiences. From responsive UIs to optimized
-          back-end services, I enjoy both sides of the stack.
+        <p className="text-lg font-light max-w-2xl mx-auto text-gray-900 leading-relaxed animate-fadeInUp">
+          I’m <span className="font-semibold">Tanmoy</span>, a passionate{" "}
+          <span className="font-semibold">Full-Stack MERN Developer</span> who
+          thrives on building fast, scalable, and visually appealing web
+          applications. I love transforming ideas into functional products that
+          balance clean design with efficient, maintainable code.
         </p>
       </div>
 
-      {/* Bio Details */}
+      {/* Details */}
       <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto mb-16">
-        <div className="p-6 bg-white/5 rounded-xl shadow-lg backdrop-blur-md hover:shadow-gold/30 transition">
-          <h3 className="text-2xl text-gold mb-4">
-            My Journey
-          </h3>
-
-          <p className="text-lg font-clean font-light text-gray-300 leading-relaxed">
-            I began my coding journey 1 year ago and quickly grew passionate
-            about building scalable web applications using the MERN stack.
-          </p>
-          <p className="text-lg font-clean font-light text-gray-300 leading-relaxed">
-            I stay updated with the latest tech trends to keep delivering
-            modern, high-quality solutions.
+        <div className="p-6 rounded-xl shadow-lg backdrop-blur-md hover:shadow-yellow-500/30 transition text-[#122620] bg-[#E9EAEC]">
+          <h3 className="text-2xl font-semibold mb-4">My Journey</h3>
+          <p className="text-lg text-[#000000] leading-relaxed">
+            My coding journey began with small experiments—simple websites,
+            interactive games, and tools that made daily life easier. That
+            curiosity evolved into a deep focus on{" "}
+            <span className="font-semibold">
+              modern, high-performance web experiences
+            </span>
+            .
           </p>
         </div>
 
-        <div className="p-6 bg-white/5 rounded-xl shadow-lg backdrop-blur-md hover:shadow-gold/30 transition">
-          <h3 className="text-2xl text-gold mb-4">Fun Fact</h3>
-          <p className="text-lg font-clean font-light text-gray-300 leading-relaxed">
-            Outside of coding, I'm an avid photographer, love football, and
-            enjoy chess. I believe in balancing work and play for creativity.
+        <div className="p-6 rounded-xl shadow-lg backdrop-blur-md hover:shadow-yellow-500/30 transition bg-[#E9EAEC]">
+          <h3 className="text-2xl font-semibold mb-4">Beyond Coding</h3>
+          <p className="text-lg text-black leading-relaxed">
+            When I’m not coding, I’m capturing moments through{" "}
+            <span className="font-semibold">photography</span>, playing{" "}
+            <span className="font-semibold">football</span>, or strategizing
+            over <span className="font-semibold">chess</span>. Creativity comes
+            from exploring beyond the screen.
           </p>
         </div>
       </div>
 
       {/* Skills Section */}
       <div className="text-center">
-        <h3 className="heading-sec__main text-4xl text-gold mb-14 tracking-wide hover:text-amber-600 hover:decoration-blue-600">
-          SKILLS
+        <h3 className="heading-sec__main mb-14 tracking-wide hover:text- ">
+          Skills
         </h3>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 max-w-4xl mx-auto">
           {skills.map((skill, idx) => (
             <div
               key={idx}
-              className={`group p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-all transform hover:scale-105 ${skill.hover}`}
+              className={`group p-6 bg-[#6699CC] rounded-lg shadow-md hover:shadow-xl transition-all transform hover:scale-105 ${skill.hover}`}
             >
               <div
                 className={`${skill.color} text-6xl mx-auto mb-4 group-hover:text-white transition-colors duration-300`}
               >
                 {skill.icon}
               </div>
-              <h4 className="text-xl font-clean font-semibold text-black group-hover:text-white transition-colors duration-300">
+              <h4 className="text-xl font-clean font-semibold text-[#F9F6F0] group-hover:text-white transition-colors duration-300">
                 {skill.label}
               </h4>
             </div>
           ))}
         </div>
-      </div>
-
-      {/* Resume Button */}
-      <div className="mt-16 text-center">
-        <a
-          href="/WebDevResume5.pdf"
-          className="inline-block bg-gold bg-amber-500 text-white py-3 px-8 rounded-full font-semibold tracking-wide shadow-lg hover:bg-yellow-500 hover:shadow-gold/50 transition-all"
-        >
-          View My Resume
-        </a>
+        {/* Resume Button */}
+        <div className="mt-16 text-center">
+          <a
+            href="/WebDevResume5.pdf"
+            className="inline-block bg-gold bg-[#6F5B3E] text-white py-3 px-8 rounded-full font-semibold tracking-wide shadow-lg hover:bg-[#171515] hover:text-[#f9f6f0] hover:shadow-gold/50 transition-all"
+          >
+            View My Resume
+          </a>
+        </div>
       </div>
     </section>
   );

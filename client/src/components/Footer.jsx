@@ -20,7 +20,7 @@ function Footer() {
   }, []);
 
   return (
-    <footer className="relative bg-gray-900 text-white pt-24 pb-10 overflow-hidden">
+    <footer className="relative bg-[#003786] text-white pt-24 pb-10 overflow-hidden">
       {/* 🌊 Wavy Top Divider */}
       {/* <div className="absolute top-0 left-0 w-full overflow-hidden leading-none rotate-180">
         <svg
@@ -106,7 +106,7 @@ function Footer() {
       </div>
       {/* Back to Top Button */}
       {showTopButton && (
-        <div className="fixed bottom-6 right-6 z-50">
+        <div className="fixed bottom-6 right-0 z-50">
           <a
             href="#HOME"
             className="group bg-yellow-400 hover:bg-yellow-500 text-black p-3 rounded-full shadow-xl transition-transform transform hover:scale-110"

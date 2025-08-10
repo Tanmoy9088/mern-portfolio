@@ -6,63 +6,93 @@ function MouseEffect() {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
   const [hoverText, setHoverText] = useState("");
-  const [cursorColor, setCursorColor] = useState("white");
+  const [brightness, setBrightness] = useState(1);
 
-  const lastScrollTop = useRef(0);
-  const lastTime = useRef(Date.now());
+  const currentHoveredLink = useRef(null);
+  const originalLinkStyles = useRef(new Map());
 
   useEffect(() => {
+    const getBrightness = (color) => {
+      if (!color.startsWith("rgb")) return 1;
+      const rgb = color.match(/\d+/g).map(Number);
+      return (rgb[0] * 0.299 + rgb[1] * 0.587 + rgb[2] * 0.114) / 255;
+    };
+
     const moveHandler = (e) => {
       setPosition({ x: e.clientX, y: e.clientY });
 
-      // Detect background brightness & adjust cursor color
       try {
-        const element = document.elementFromPoint(e.clientX, e.clientY);
-        if (element) {
-          const bgColor = window.getComputedStyle(element).backgroundColor;
-          if (bgColor.startsWith("rgb")) {
-            const rgb = bgColor
-              .match(/\d+/g)
-              ?.map((num) => parseInt(num, 10)) || [255, 255, 255];
-            const brightness =
-              (rgb[0] * 0.299 + rgb[1] * 0.587 + rgb[2] * 0.114) / 255;
-            setCursorColor(brightness > 0.5 ? "black" : "white");
+        const el = document.elementFromPoint(e.clientX, e.clientY);
+        if (!el) {
+          if (currentHoveredLink.current) {
+            const orig = originalLinkStyles.current.get(currentHoveredLink.current);
+            if (orig) {
+              currentHoveredLink.current.style.backgroundColor = orig.backgroundColor;
+              currentHoveredLink.current.style.color = orig.color;
+            }
+            currentHoveredLink.current = null;
+            originalLinkStyles.current.clear();
           }
+          setBrightness(1);
+          setIsHovering(false);
+          setHoverText("");
+          return;
         }
-      } catch (err) {
-        console.warn("Background detection error:", err);
+
+        const color = window.getComputedStyle(el).color || "rgb(255,255,255)";
+        const bright = getBrightness(color);
+        setBrightness(bright);
+
+        if (el.tagName.toLowerCase() === "a") {
+          if (currentHoveredLink.current !== el) {
+            if (currentHoveredLink.current) {
+              const orig = originalLinkStyles.current.get(currentHoveredLink.current);
+              if (orig) {
+                currentHoveredLink.current.style.backgroundColor = orig.backgroundColor;
+                currentHoveredLink.current.style.color = orig.color;
+              }
+            }
+
+            originalLinkStyles.current.set(el, {
+              backgroundColor: el.style.backgroundColor,
+              color: el.style.color,
+            });
+
+            currentHoveredLink.current = el;
+            el.style.transition = "background-color 0.3s ease, color 0.3s ease";
+
+            if (bright < 0.5) {
+              el.style.backgroundColor = "rgba(255,255,255,0.3)";
+              el.style.color = "#000";
+            } else {
+              el.style.backgroundColor = "rgba(0,0,0,0.15)";
+              el.style.color = "#fff";
+            }
+          }
+          setIsHovering(true);
+          setHoverText(el.getAttribute("data-cursor-hover") || "View");
+        } else {
+          if (currentHoveredLink.current) {
+            const orig = originalLinkStyles.current.get(currentHoveredLink.current);
+            if (orig) {
+              currentHoveredLink.current.style.backgroundColor = orig.backgroundColor;
+              currentHoveredLink.current.style.color = orig.color;
+            }
+            currentHoveredLink.current = null;
+            originalLinkStyles.current.clear();
+          }
+          setIsHovering(false);
+          setHoverText("");
+        }
+      } catch {
+        setBrightness(1);
+        setIsHovering(false);
+        setHoverText("");
       }
     };
 
-    // Scroll tracking
-    const scrollHandler = () => {
-      const now = Date.now();
-      const scrollTop = window.scrollY;
-      const deltaScroll = Math.abs(scrollTop - lastScrollTop.current);
-      const deltaTime = now - lastTime.current;
-      deltaScroll / deltaTime; // Not used but can track speed later
-      lastScrollTop.current = scrollTop;
-      lastTime.current = now;
-    };
-
-    // Hover detection
-    const clickableSelector = "a, button, [data-cursor-hover]";
-    const hoverElements = document.querySelectorAll(clickableSelector);
-    hoverElements.forEach((el) => {
-      el.addEventListener("mouseenter", () => {
-        setIsHovering(true);
-        setHoverText(el.getAttribute("data-cursor-hover") || "View");
-      });
-      el.addEventListener("mouseleave", () => {
-        setIsHovering(false);
-        setHoverText("");
-      });
-    });
-
     window.addEventListener("mousemove", moveHandler);
-    window.addEventListener("scroll", scrollHandler);
 
-    // Smooth animation loop
     let animationFrame;
     const animate = () => {
       setSmoothPos((prev) => ({
@@ -79,27 +109,52 @@ function MouseEffect() {
 
     return () => {
       window.removeEventListener("mousemove", moveHandler);
-      window.removeEventListener("scroll", scrollHandler);
-      hoverElements.forEach((el) => {
-        el.removeEventListener("mouseenter", () => {});
-        el.removeEventListener("mouseleave", () => {});
-      });
+      if (currentHoveredLink.current) {
+        const orig = originalLinkStyles.current.get(currentHoveredLink.current);
+        if (orig) {
+          currentHoveredLink.current.style.backgroundColor = orig.backgroundColor;
+          currentHoveredLink.current.style.color = orig.color;
+        }
+        currentHoveredLink.current = null;
+        originalLinkStyles.current.clear();
+      }
       cancelAnimationFrame(animationFrame);
     };
   }, [position]);
 
+  // Cursor colors based on brightness
+  const cursorBorderColor = brightness > 0.5 ? "black" : "white";
+
+  // Cursor background becomes more focused (less transparent) on hover
+  const cursorBgColor = isHovering
+    ? brightness > 0.5
+      ? "rgba(0, 0, 0, 0.3)"
+      : "rgba(255, 255, 255, 0.2)"
+    : brightness > 0.5
+    ? "rgba(0, 0, 0, 0.2)"
+    : "rgba(255, 255, 255, 0.2)";
+
+  const hoverLabelColor = isHovering
+    ? brightness > 0.5
+      ? "white"
+      : "black"
+    : brightness > 0.5
+    ? "black"
+    : "white";
+
   return (
     <>
-      {/* Background Glow */}
+      {/* Page background spotlight that moves with cursor */}
       <div
         className="fixed inset-0 pointer-events-none z-0"
         style={{
-          background: `radial-gradient(
-            120px at ${smoothPos.x}px ${smoothPos.y}px,
-            rgba(255,255,255,0.08),
-            transparent 70%
-          )`,
-          transition: "background 0.15s ease-out",
+          background: isHovering
+            ? `radial-gradient(circle 150px at ${smoothPos.x}px ${smoothPos.y}px, rgba(255,255,255,0.15), transparent 70%)`
+            : `radial-gradient(circle 120px at ${smoothPos.x}px ${smoothPos.y}px, rgba(255,255,255,0.08), transparent 70%)`,
+          transition: "background 0.3s ease",
+          mixBlendMode: "screen",
+          pointerEvents: "none",
+          userSelect: "none",
         }}
       />
 
@@ -109,25 +164,28 @@ function MouseEffect() {
         style={{
           left: cursorPos.x,
           top: cursorPos.y,
-          width: isHovering ? "80px" : "20px",
-          height: isHovering ? "80px" : "20px",
+          width: isHovering ? "60px" : "30px",
+          height: isHovering ? "60px" : "30px",
           borderRadius: "50%",
-          border: `2px solid ${cursorColor}`,
-          backgroundColor: isHovering ? `${cursorColor}10` : `${cursorColor}05`,
+          border: `2px solid ${cursorBorderColor}`,
+          backgroundColor: cursorBgColor,
           transform: "translate(-50%, -50%)",
           transition:
-            "width 0.3s cubic-bezier(0.25, 1, 0.5, 1), height 0.3s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s ease, background-color 0.3s ease",
+            "width 0.3s cubic-bezier(0.25,1,0.5,1), height 0.3s cubic-bezier(0.25,1,0.5,1), border-color 0.3s ease, background-color 0.3s ease",
+          pointerEvents: "none",
+          userSelect: "none",
         }}
       >
-        {/* Hover Label */}
         <span
           style={{
-            color: cursorColor,
+            color: hoverLabelColor,
             fontSize: "12px",
             fontWeight: "500",
             opacity: isHovering ? 1 : 0,
-            transform: `scale(${isHovering ? 1 : 0.5})`,
+            transform: `scale(${isHovering ? 0.7 : 0.5})`,
             transition: "opacity 0.25s ease, transform 0.25s ease",
+            pointerEvents: "none",
+            userSelect: "none",
           }}
         >
           {hoverText}
