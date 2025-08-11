@@ -60,6 +60,55 @@ function generateShapePositions(shape, count) {
       }
       break;
 
+    case "cube":
+      for (let i = 0; i < count; i++) {
+        positions[i * 3] = (Math.random() - 0.5) * radius * 2;
+        positions[i * 3 + 1] = (Math.random() - 0.5) * radius * 2;
+        positions[i * 3 + 2] = (Math.random() - 0.5) * radius * 2;
+      }
+      break;
+
+    // Spider-Man web
+    case "spiderWeb": {
+      const rings = 6;
+      const strands = 12;
+      let idx = 0;
+
+      // Concentric rings
+      for (let r = 1; r <= rings; r++) {
+        const ringRadius = (r / rings) * radius;
+        for (let s = 0; s < strands; s++) {
+          const angle = (s / strands) * Math.PI * 2;
+          positions[idx++] = Math.cos(angle) * ringRadius;
+          positions[idx++] = Math.sin(angle) * ringRadius;
+          positions[idx++] = (Math.random() - 0.5) * 0.05;
+          if (idx >= count * 3) break;
+        }
+      }
+
+      // Radial lines
+      for (let s = 0; s < strands; s++) {
+        const angle = (s / strands) * Math.PI * 2;
+        for (let r = 0; r <= rings; r++) {
+          const ringRadius = (r / rings) * radius;
+          positions[idx++] = Math.cos(angle) * ringRadius;
+          positions[idx++] = Math.sin(angle) * ringRadius;
+          positions[idx++] = (Math.random() - 0.5) * 0.05;
+          if (idx >= count * 3) break;
+        }
+      }
+
+      // Fill leftovers
+      while (idx < count * 3) {
+        const angle = Math.random() * Math.PI * 2;
+        const ringRadius = Math.random() * radius;
+        positions[idx++] = Math.cos(angle) * ringRadius;
+        positions[idx++] = Math.sin(angle) * ringRadius;
+        positions[idx++] = (Math.random() - 0.5) * 0.05;
+      }
+      break;
+    }
+
     default:
       for (let i = 0; i < count * 3; i++) {
         positions[i] = (Math.random() - 0.5) * radius * 2;
@@ -73,12 +122,24 @@ function generateShapePositions(shape, count) {
 // Morphing + Lines
 // =====================
 function MorphingConstellation() {
+  const groupRef = useRef();
   const ref = useRef();
   const lineRef = useRef();
   const count = 300;
   const maxDistance = 1.2;
 
-  const shapes = ["sphere", "pyramid", "ring", "helix", "wave"];
+  const shapes = [
+    "sphere",
+    "torus",
+    "cube",
+    "pyramid",
+    "spiderWeb", // 🕸️ web moment
+    "wave",
+    "spiralGalaxy",
+    "doubleHelix",
+    "starburst",
+    "flower",
+  ];
 
   const [shapeIndex, setShapeIndex] = useState(0);
   const currentShape = useMemo(
@@ -86,7 +147,8 @@ function MorphingConstellation() {
     [shapeIndex]
   );
   const nextShape = useMemo(
-    () => generateShapePositions(shapes[(shapeIndex + 1) % shapes.length], count),
+    () =>
+      generateShapePositions(shapes[(shapeIndex + 1) % shapes.length], count),
     [shapeIndex]
   );
 
@@ -106,7 +168,7 @@ function MorphingConstellation() {
     [count]
   );
 
-  useFrame(() => {
+  useFrame(({ clock }) => {
     const posArray = ref.current.geometry.attributes.position.array;
     blendRef.current += 0.002;
 
@@ -121,16 +183,27 @@ function MorphingConstellation() {
       let t = (blendRef.current - delays[i]) * 1.5;
       t = Math.min(Math.max(t, 0), 1);
 
-      posArray[i * 3] = THREE.MathUtils.lerp(currentShape[i * 3], nextShape[i * 3], t);
-      posArray[i * 3 + 1] = THREE.MathUtils.lerp(currentShape[i * 3 + 1], nextShape[i * 3 + 1], t);
-      posArray[i * 3 + 2] = THREE.MathUtils.lerp(currentShape[i * 3 + 2], nextShape[i * 3 + 2], t);
+      posArray[i * 3] = THREE.MathUtils.lerp(
+        currentShape[i * 3],
+        nextShape[i * 3],
+        t
+      );
+      posArray[i * 3 + 1] = THREE.MathUtils.lerp(
+        currentShape[i * 3 + 1],
+        nextShape[i * 3 + 1],
+        t
+      );
+      posArray[i * 3 + 2] = THREE.MathUtils.lerp(
+        currentShape[i * 3 + 2],
+        nextShape[i * 3 + 2],
+        t
+      );
 
       posArray[i * 3] += velocities[i * 3];
       posArray[i * 3 + 1] += velocities[i * 3 + 1];
       posArray[i * 3 + 2] += velocities[i * 3 + 2];
     }
 
-    // Update points
     ref.current.geometry.attributes.position.needsUpdate = true;
 
     // Build connection lines
@@ -155,10 +228,26 @@ function MorphingConstellation() {
 
     lineRef.current.geometry.setDrawRange(0, lineIndex / 3);
     lineRef.current.geometry.attributes.position.needsUpdate = true;
+
+    // Extra motion for group
+    groupRef.current.rotation.y += 0.002;
+    groupRef.current.rotation.x = Math.sin(clock.elapsedTime * 0.1) * 0.1;
+
+    const scale = 1 + Math.sin(clock.elapsedTime * 0.5) * 0.05;
+    groupRef.current.scale.set(scale, scale, scale);
+
+    // Web special effect
+    if (shapes[shapeIndex] === "spiderWeb") {
+      lineRef.current.material.color.set("#FFFFFF");
+      lineRef.current.material.opacity = 0.5;
+    } else {
+      lineRef.current.material.color.set("#00AFFF");
+      lineRef.current.material.opacity = 0.3;
+    }
   });
 
   return (
-    <>
+    <group ref={groupRef}>
       {/* Particles */}
       <points ref={ref}>
         <bufferGeometry>
@@ -184,14 +273,19 @@ function MorphingConstellation() {
         </bufferGeometry>
         <lineBasicMaterial color="#00AFFF" transparent opacity={0.3} />
       </lineSegments>
-    </>
+    </group>
   );
 }
 
 export default function ConstellationCanvas() {
   return (
     <Canvas
-      style={{ position: "absolute", inset: 0, zIndex: 15, pointerEvents: "none" }}
+      style={{
+        position: "absolute",
+        inset: 0,
+        zIndex: 15,
+        pointerEvents: "none",
+      }}
       camera={{ position: [0, 0, 6], fov: 75 }}
     >
       <ambientLight intensity={0.5} />

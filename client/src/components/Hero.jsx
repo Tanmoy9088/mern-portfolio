@@ -4,6 +4,8 @@ import ParticlesCanvas from "./ParticlesCanvas";
 import "./Hero.css";
 // import ParticlesCanvas from "./ParticlesBackground";
 import { FaGithub, FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+
 function Hero() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [hue, setHue] = useState(0);
@@ -58,11 +60,38 @@ function Hero() {
 
       {/* 🔲 Light Overlay */}
       <div className="absolute inset-0 z-0 bg-[#F9F6F0]"></div>
-      <div className="fixed left-2 top-[50%] flex flex-col gap-2 z-50 bg-amber-200 p-4 rounded-2xl">
-        <a href="https://www.linkedin.com/in/tanmoy9088"><FaLinkedinIn/></a>
-        <a href="https://www.github.com/Tanmoy9088"><FaGithub/></a>
-        <a href=""><FaTwitter/></a>
-        <a href="https://www.instagram.com/tanmoy_9088/"><FaInstagram/></a>
+      <div className="h-32 fixed left-2 flex flex-col justify-evenly z-50 lg:flex md:hidden sm:hidden bg-amber-200 p-4 rounded-2xl">
+        <div>
+          {" "}
+          <a
+            className="hover:text-blue-600"
+            href="https://www.linkedin.com/in/tanmoy9088"
+          >
+            <FaLinkedinIn />
+          </a>
+        </div>
+        <div>
+          <a
+            className="hover:text-white hover:bg-black"
+            href="https://www.github.com/Tanmoy9088"
+          >
+            <FaGithub />
+          </a>
+        </div>
+        <div>
+          {" "}
+          <a
+            className="hover:text-white"
+            href="https://twitter.com/Tanmoy105Das"
+          >
+            <FaXTwitter />
+          </a>
+        </div>
+        <div className="hover:bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] rounded-md">
+          <a href="https://www.instagram.com/tanmoy_9088/">
+            <FaInstagram />
+          </a>
+        </div>
       </div>
       {/* 🌟 Hero Content */}
       <div className="relative z-20 text-center px-6 max-w-4xl">
@@ -85,7 +114,7 @@ function Hero() {
           to="PROJECTS"
           smooth={true}
           duration={600}
-          className="inline-block mt-10 px-8 py-3 bg-[#2464cb] text-[#ffffff] hover:text-[#ef0896] font-semibold rounded-md hover:shadow-[0_0_10px_#514A00] transition-all hover:scale-105 animate-bounce"
+          className="inline-block mt-10 px-8 py-3 bg-[#1E3A8A] text-[#ffffff] hover:text-[#f9dd51] font-semibold rounded-md hover:shadow-[0_0_10px_#514A00] transition-all hover:scale-105"
         >
           View My Work
         </Link>

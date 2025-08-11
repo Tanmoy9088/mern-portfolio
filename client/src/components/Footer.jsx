@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 
 import { FaGithub, FaLinkedinIn, FaTwitter } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
+import { SiGmail } from "react-icons/si";
 
 function Footer() {
   const [showTopButton, setShowTopButton] = useState(false);
@@ -65,6 +67,7 @@ function Footer() {
 
         {/* Social Icons */}
         <div className="flex justify-center gap-6 text-3xl mb-8">
+          <h3 className="block font-medium ">SOCIAL</h3>
           <a
             href="https://github.com/Tanmoy9088"
             target="_blank"
@@ -85,18 +88,18 @@ function Footer() {
             href="https://twitter.com/Tanmoy105Das"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sky-400 hover:text-white transition-transform transform hover:scale-110"
+            className="text-black hover:text-white transition-transform transform hover:scale-110"
           >
-            <FaTwitter />
+            <FaXTwitter />
           </a>
           <a
             href="mailto:tanmoyd9088@gmail.com"
             className="text-red-500 hover:text-white hover:bg-red-500 hover:margin-0 hover:p-0 transition-transform transform hover:scale-110"
           >
-            < MdEmail />
+            < SiGmail />
           </a>
         </div>
-
+        <hr className="mb-8 mt-2 h-[.1px] bg-gray-400 border-0" />
         {/* Copyright */}
         <p className="text-sm text-gray-400">
           © {new Date().getFullYear()}{" "}
