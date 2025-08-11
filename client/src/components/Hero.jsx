@@ -60,7 +60,7 @@ function Hero() {
 
       {/* 🔲 Light Overlay */}
       <div className="absolute inset-0 z-0 bg-[#F9F6F0]"></div>
-      <div className="h-32 fixed left-2 flex flex-col justify-evenly z-50 lg:flex md:hidden sm:hidden bg-amber-200 p-4 rounded-2xl">
+      <div className="h-32 fixed left-2 flex flex-col justify-evenly z-50 hidden lg:flex bg-amber-200 p-4 rounded-2xl">
         <div>
           {" "}
           <a
