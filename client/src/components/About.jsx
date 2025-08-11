@@ -68,8 +68,8 @@ function About() {
       id="BIO"
       className={`py-24 px-6 transition-all duration-500 ${
         isScrolled
-          ? "bg-[#B8BBC1] text-[#171515]"
-          : "bg-gray-100 text-[#B3B3B3]"
+          ? "bg-[#F9F6F0] text-[#171515]"
+          : "bg-[#cfcece] text-[#B3B3B3]"
       }`}
     >
       {/* Bio Header */}
@@ -113,9 +113,9 @@ function About() {
 
       {/* Skills Section */}
       <div className="text-center">
-        <h3 className="heading-sec__main mb-14 tracking-wide hover:text- ">
+        <span className="heading-sec__main">
           Skills
-        </h3>
+        </span>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 max-w-4xl mx-auto">
           {skills.map((skill, idx) => (
             <div
@@ -137,7 +137,7 @@ function About() {
         <div className="mt-16 text-center">
           <a
             href="/WebDevResume5.pdf"
-            className="inline-block bg-gold bg-[#6F5B3E] text-white py-3 px-8 rounded-full font-semibold tracking-wide shadow-lg hover:bg-[#171515] hover:text-[#f9f6f0] hover:shadow-gold/50 transition-all"
+            className="inline-block bg-gold bg-[#DC2626] text-white py-3 px-8 rounded-xl font-semibold tracking-wide shadow-lg hover:bg-[#171515]/70 hover:text-[#f9f6f0] hover:shadow-gold/50 transition-all"
           >
             View My Resume
           </a>
