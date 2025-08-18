@@ -73,27 +73,29 @@ button:focus-visible {
 h1 {
   font-size: 50px;
   line-height: 1.1;
-  font-family: "Georgia", serif; 
+  font-family: "Georgia", serif;
   font-weight: bold;
-
 }
-h2{
+h2 {
   font-size: 25px;
-   line-height: 1.1;
-  font-family: "Georgia", serif; 
+  line-height: 1.1;
+  font-family: "Georgia", serif;
   font-weight: bold;
 }
-h3{
+h3 {
   font-size: 20px;
-   line-height: 1.1;
-  font-family: "Georgia", serif; 
+  line-height: 1.1;
+  font-family: "Georgia", serif;
   font-weight: 400;
 }
-p{
+p {
   font-size: 16px;
-   line-height: 1.7;
-  font-family: "Georgia", serif; 
+  line-height: 1.7;
+  font-family: "Georgia", serif;
   font-weight: 400;
+}
+.copyright {
+  font-size: 12px;
 }
 
 /* ===========================
@@ -291,11 +293,11 @@ p{
   height: 200px;
   background-color: red; /* Possibly placeholder */
 }
-@media(min-width:480){
-  body{
+@media (min-width: 480) {
+  body {
     background-color: lightgreen;
   }
-  h1{
+  h1 {
     font-size: 1.5rem;
   }
 }
