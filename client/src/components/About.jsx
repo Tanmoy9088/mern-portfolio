@@ -74,8 +74,8 @@ function About() {
     >
       {/* Bio Header */}
       <div className="max-w-4xl mx-auto text-center mb-12">
-        <span class="heading-sec__main">About Me</span>
-        <p className="text-lg font-light max-w-2xl mx-auto text-gray-900 leading-relaxed animate-fadeInUp">
+        <span className="heading-sec__main">About Me</span>
+        <p className={`text-lg font-light max-w-2xl mx-auto text-gray-900 leading-relaxed animate-fadeInUp${isScrolled? "": ""}`}>
           I’m <span className="font-semibold">Tanmoy</span>, a passionate{" "}
           <span className="font-semibold">Full-Stack MERN Developer</span> who
           thrives on building fast, scalable, and visually appealing web

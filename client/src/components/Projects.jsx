@@ -1,4 +1,5 @@
 import React from "react";
+import "./Projects.css"
 
 const projects = [
   {
@@ -46,7 +47,7 @@ function Projects() {
         {projects.map((project, index) => (
           <div
             key={index}
-            className="group relative border border-blue-600/20 rounded-2xl shadow-lg overflow-hidden hover:shadow-yellow-500/40 transition-all duration-300 hover:scale-105 hover:-translate-y-2"
+            className="group relative border-3 border-blue-600/20 rounded-2xl shadow-lg overflow-hidden hover:shadow-yellow-400 transition-all duration-300 hover:scale-105"
             style={{
               backgroundImage: `url(${project.image})`,
               backgroundSize: "cover",
@@ -54,12 +55,12 @@ function Projects() {
             }}
           >
             {/* Dark Overlay */}
-            <div className="absolute inset-0 bg-[#c8c7c7] group-hover:bg-[#B3B3B3] transition"></div>
+            <div className="absolute inset-0 bg-[#f3f3f7] group-hover:bg-[#f3f3f6] transition"></div>
 
             {/* Content */}
             <div className="relative z-10 p-6 flex flex-col justify-between h-full">
               <div>
-                <h3 className="text-2xl text-[#050A30] font-bold text-gold mb-4 group-hover:text-[#fbfbfbe5] transition hover:translate-1">
+                <h3 className="text-2xl text-[#050A30] font-bold text-gold mb-4 group-hover:text-[#e36b6be5] transition hover:translate-1">
                   {project.name}
                 </h3>
                 <p className="text-[#122620] mb-6 leading-relaxed">
@@ -70,7 +71,7 @@ function Projects() {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block relative text-white bg-[#1E3A8A] w-48 m-auto text-center py-2 px-6 rounded-md font-semibold tracking-wide shadow-lg hover:bg-[#E64A19] hover:shadow-orange-400/50 transition-all"
+                className="inline-block relative text-white bg-[#1E3A8A] w-48 m-auto text-center py-2 px-6 rounded-md font-semibold tracking-wide shadow-lg group-hover:bg-[#E64A19] hover:shadow-orange-400/50 transition-all"
               >
                 View Project
               </a>

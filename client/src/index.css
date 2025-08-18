@@ -291,3 +291,11 @@ p{
   height: 200px;
   background-color: red; /* Possibly placeholder */
 }
+@media(min-width:480){
+  body{
+    background-color: lightgreen;
+  }
+  h1{
+    font-size: 1.5rem;
+  }
+}

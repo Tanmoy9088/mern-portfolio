@@ -15,4 +15,17 @@
       background-position: 0% 50%;
     }
   }
+  @media(max-width: 480px){
+  h1{
+    font-size: 28px;
+  }
+  h1 span{
+    font-size:28px;
+    margin-left: 15px;
+  }
+  p{
+    font-size: 20px;
+    align-text: center;
+  }
+}
   

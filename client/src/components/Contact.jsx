@@ -41,7 +41,7 @@ function Contact() {
   return (
     <section
       id="CONTACT"
-      className="relative min-h-screen flex items-center justify-center px-6 py-20 bg-[#cfcece] overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center px-6 py-20 bg-[#fcfcfc] overflow-hidden"
     >
       {/* Subtle floating glow elements */}
       <div className="absolute top-10 left-10 w-72 h-72 bg-pink-300/20 blur-3xl rounded-full animate-pulse"></div>
@@ -60,7 +60,7 @@ function Contact() {
         </div>
 
         {/* Right: Form */}
-        <div className="backdrop-blur-md bg-[#aaaaaa] border border-white/20 p-8 rounded-2xl shadow-lg">
+        <div className="backdrop-blur-md bg-[#f3f3f7] border border-white/20 p-8 rounded-2xl shadow-lg hover:shadow-yellow-400">
           <form onSubmit={handleSubmit} className="space-y-5">
             <input
               type="text"
@@ -68,7 +68,7 @@ function Contact() {
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
-              className="w-full px-5 py-3 bg-white/10 text-[#8F959B] rounded-lg border border-white/20 focus:outline-none focus:ring-2 focus:ring-pink-500 transition placeholder-gray-300"
+              className="w-full px-5 py-3 bg-white/10 text-[#000000] rounded-lg border border-blue-500/20 focus:outline-none focus:ring-2 focus:ring-blue-500 transition placeholder-gray-400"
             />
             <input
               type="email"
@@ -76,7 +76,7 @@ function Contact() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full px-5 py-3 bg-white/10 text-[#8F959B] rounded-lg border border-white/20 focus:outline-none focus:ring-2 focus:ring-pink-500 transition placeholder-gray-300"
+              className="w-full px-5 py-3 bg-white/10 text-[#000000] rounded-lg border border-blue-500/20 focus:outline-none focus:ring-2 focus:ring-blue-500 transition placeholder-gray-400"
             />
             <textarea
               placeholder="Your Message"
@@ -84,7 +84,7 @@ function Contact() {
               onChange={(e) => setMessage(e.target.value)}
               required
               rows="5"
-              className="w-full px-5 py-3 bg-white/10 text-[#8F959B] rounded-lg border border-white/20 focus:outline-none focus:ring-2 focus:ring-pink-500 transition placeholder-gray-300 resize-none"
+              className="w-full px-5 py-3 bg-white/10 text-[#000000] rounded-lg border border-blue-500/20 focus:outline-none focus:ring-2 focus:ring-blue-500 transition placeholder-gray-400 resize-none"
             ></textarea>
             <button
               type="submit"

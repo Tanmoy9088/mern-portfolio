@@ -238,11 +238,11 @@ function MorphingConstellation() {
 
     // Web special effect
     if (shapes[shapeIndex] === "spiderWeb") {
-      lineRef.current.material.color.set("#FFFFFF");
-      lineRef.current.material.opacity = 0.5;
+      lineRef.current.material.color.set("#ffffff");
+      lineRef.current.material.opacity = 1;
     } else {
-      lineRef.current.material.color.set("#00AFFF");
-      lineRef.current.material.opacity = 0.3;
+      lineRef.current.material.color.set("#ffffff");
+      lineRef.current.material.opacity = 0.7;
     }
   });
 
