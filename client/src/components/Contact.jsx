@@ -60,7 +60,7 @@ function Contact() {
         </div>
 
         {/* Right: Form */}
-        <div className="backdrop-blur-md bg-[#f3f3f7] border border-white/20 p-8 rounded-2xl shadow-lg hover:shadow-yellow-400">
+        <div className="relative backdrop-blur-md bg-[#f3f3f7] border border-white/20 p-8 rounded-2xl shadow-lg hover:shadow-yellow-400">
           <form onSubmit={handleSubmit} className="space-y-5">
             <input
               type="text"
@@ -89,7 +89,7 @@ function Contact() {
             <button
               type="submit"
               disabled={status === "loading"}
-              className="w-full bg-[#1E3A8A] hover:opacity-90 text-white font-semibold py-3 rounded-lg shadow-lg transition-transform transform hover:scale-105 disabled:opacity-60"
+              className="relative r-2 w-48 bg-[#1E3A8A] hover:opacity-90 text-white font-semibold py-3 rounded-lg shadow-lg transition-transform transform hover:scale-105 disabled:opacity-60"
             >
               {status === "loading" ? "Sending..." : "Send Message"}
             </button>

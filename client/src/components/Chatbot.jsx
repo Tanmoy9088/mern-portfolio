@@ -34,7 +34,7 @@ function Chatbot() {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 bg-yellow-500 text-black p-4 rounded-full shadow-lg hover:scale-110 transition z-40"
+          className="fixed bottom-10 right-2 bg-yellow-500 text-black p-4 rounded-full shadow-lg hover:scale-110 transition z-40"
         >
           <FaComments size={24} />
         </button>

@@ -25,6 +25,7 @@ app.get("/", (req, res) => {
 app.get("/:Id", (req, res) => {
   const result = req.params.Id;
     res.send(`Hi ${result}`)
+    console.log("Success")
 });
 app.post("/",(req,res)=>{
   res.send("Ok")

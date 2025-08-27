@@ -1,27 +1,43 @@
 import React from "react";
-import "./Projects.css"
+import "./Projects.css";
+import tanmoyImg from "/tanmoy_das_(2).png";
+import TaskManager from "/TaskManager.png";
+import MyPortfolio from "/MyPortfolio.png";
+import GuessMyNumber from "/GuessMyNumber.png";
+import TinDog from "/TinDog.png";
+import weatherApp from "/weatherApp.png";
 
 const projects = [
   {
-    name: "Tindog",
-    description: "A Tinder-style web app for dogs to connect and find friends.",
-    link: "https://tingdog-project.onrender.com",
-  },
-  {
     name: "Task Manager App",
+    image: TaskManager,
     description:
       "A full-featured task management tool for tracking and organizing work efficiently.",
     link: "https://zidio-task-management-tanmoy9088.vercel.app/",
   },
   {
+    name: "My Portfolio",
+    image: MyPortfolio,
+    description:
+      "A weather forecast app providing real-time conditions and updates.",
+    link: "https://tanmoy9088-portfolio-3eym.vercel.app",
+  },
+  {
     name: "Guess My Number",
+    image: GuessMyNumber,
     description:
       "A fun number guessing game built with JavaScript for a quick challenge.",
     link: "https://guess-my-number-xlak.onrender.com",
   },
   {
+    name: "Tindog",
+    image: TinDog,
+    description: "A Tinder-style web app for dogs to connect and find friends.",
+    link: "https://tingdog-project.onrender.com",
+  },
+  {
     name: "Weather App",
-    image: "/tanmoy_das_(2).png",
+    image: weatherApp,
     description:
       "A weather forecast app providing real-time conditions and updates.",
     link: "https://your-weather-app-link.com",
@@ -43,29 +59,44 @@ function Projects() {
       </div>
 
       {/* Project Grid */}
-      <div className=" grid sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
+      <div className=" grid sm:grid-cols-2 lg:grid-cols-1 gap-10 max-w-3xl mx-auto">
         {projects.map((project, index) => (
           <div
             key={index}
-            className="group relative border-3 border-blue-600/20 rounded-2xl shadow-lg overflow-hidden hover:shadow-yellow-400 transition-all duration-300 hover:scale-105"
-            style={{
-              backgroundImage: `url(${project.image})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
+            className="group relative border-2 border-blue-600/20 rounded-2xl shadow-lg overflow-hidden hover:shadow-yellow-400 transition-all duration-300 hover:scale-105"
+            // style={{
+            //   backgroundImage: `url(${project.image})`,
+            //   backgroundSize: "cover",
+            //   backgroundPosition: "center",
+            // }}
           >
             {/* Dark Overlay */}
             <div className="absolute inset-0 bg-[#f3f3f7] group-hover:bg-[#f3f3f6] transition"></div>
 
             {/* Content */}
-            <div className="relative z-10 p-6 flex flex-col justify-between h-full">
+            <div className="relative pb-6 z-10 flex flex-col justify-between h-full">
               <div>
-                <h3 className="text-2xl text-[#050A30] font-bold text-gold mb-4 group-hover:text-[#e36b6be5] transition hover:translate-1">
+                <h3 className="text-2xl px-6 pt-6 text-[#050A30] font-bold text-gold mb-4 group-hover:text-[#e36b6be5] transition hover:translate-1 underline">
                   {project.name}
                 </h3>
-                <p className="text-[#122620] mb-6 leading-relaxed">
+                <p className="text-[#122620] px-6 mb-6 leading-relaxed">
                   {project.description}
                 </p>
+              </div>
+              <div className="">
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-block relative text-white bg-[#1E3A8A] mb-6 text-center  font-semibold tracking-wide shadow-lg transition-all"
+                >
+                  {" "}
+                  <img
+                    className=" mb-0"
+                    src={project.image}
+                    alt={project.name}
+                  />
+                </a>
               </div>
               <a
                 href={project.link}
