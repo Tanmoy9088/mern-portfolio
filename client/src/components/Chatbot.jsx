@@ -12,7 +12,7 @@ function Chatbot() {
     const userMsg = { role: "user", content: input };
     setMessages((prev) => [...prev, userMsg]);
 
-    const res = await fetch("http://localhost:5000/chat", {
+    const res = await fetch("https://mern-portfolio-mmpe.onrender.com/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ message: input }),
@@ -25,7 +25,7 @@ function Chatbot() {
   };
 
   const resetConversation = async () => {
-    await fetch("http://localhost:5000/reset", { method: "POST" });
+    await fetch("https://mern-portfolio-mmpe.onrender.com/reset", { method: "POST" });
     setMessages([]);
   };
 
