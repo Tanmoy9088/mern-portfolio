@@ -22,15 +22,13 @@ app.get("/", (req, res) => {
     { title: "Demo Project", description: "This is a sample project" },
   ]);
 });
-app.get("/{id}", (req, res) => {
-  const result = req.params.id;
-  if ((result = "hi")) {
-    res.status(200).json({ message: "ok" });
-  } else {
-    res.status(404).json({ message: "Error" });
-  }
+app.get("/:Id", (req, res) => {
+  const result = req.params.Id;
+    res.send(`Hi ${result}`)
 });
-app.post("/");
+app.post("/",(req,res)=>{
+  res.send("Ok")
+})
 
 // Initialize OpenRouter Client
 const client = new OpenAI({
