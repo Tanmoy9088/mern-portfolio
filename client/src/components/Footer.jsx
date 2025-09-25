@@ -52,7 +52,7 @@ function Footer() {
       </ul>
 
       {/* Brand / About */}
-      <div className="relative z-10 max-w-6xl mx-auto px-6">
+      <div className="text-left relative z-10 max-w-6xl mx-auto px-6">
         <h4 className="text-3xl font-bold mb-4">TANMOY DAS</h4>
         <p className="text-gray-300 mb-10 max-w-xl">
           Passionate MERN Stack Developer 🚀. Building scalable apps and
@@ -67,7 +67,7 @@ function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
-            className="hover:text-black rounded hover:bg-white transition-transform transform hover:scale-110"
+            className="hover:text-black bg-gray-200/20 p-4 rounded-full hover:bg-white/40 transition-transform transform hover:scale-110"
           >
             <FaGithub />
           </a>
@@ -76,7 +76,7 @@ function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
-            className="hover:text-blue-600 transition-transform transform hover:scale-110"
+            className="hover:text-blue-600 bg-gray-200/20 p-4 rounded-full hover:bg-white/40 transition-transform transform hover:scale-110"
           >
             <FaLinkedinIn />
           </a>
@@ -85,14 +85,14 @@ function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Twitter"
-            className="hover:text-black hover:bg-white rounded-2xl transition-transform transform hover:scale-110"
+            className="hover:text-black bg-gray-200/20 p-4 rounded-full hover:bg-white/40 transition-transform transform hover:scale-110"
           >
             <FaXTwitter />
           </a>
           <a
             href="mailto:tanmoyd9088@gmail.com"
             aria-label="Email"
-            className="hover:text-red-500 transition-transform transform hover:scale-110"
+            className="hover:text-red-500 bg-gray-200/20 p-4 hover:bg-white/40 rounded-full transition-transform transform hover:scale-110"
           >
             <SiGmail />
           </a>

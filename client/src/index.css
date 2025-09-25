@@ -94,6 +94,12 @@ p {
   font-family: "Georgia", serif;
   font-weight: 400;
 }
+.text-center-footer p{
+  font-size: 12px;
+}
+.text-left p{
+  font-size:12px;
+}
 .copyright {
   font-size: 12px;
 }
