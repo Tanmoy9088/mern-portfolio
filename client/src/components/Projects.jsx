@@ -5,7 +5,7 @@ import TaskManager from "/TaskManager.png";
 import MyPortfolio from "/MyPortfolio.png";
 import GuessMyNumber from "/GuessMyNumber.png";
 import TinDog from "/TinDog.png";
-import weatherApp from "/weatherApp.png";
+import weatherApp from "/weatherApp1.png";
 
 const projects = [
   {
@@ -59,7 +59,7 @@ function Projects() {
       </div>
 
       {/* Project Grid */}
-      <div className=" grid sm:grid-cols-2 lg:grid-cols-1 gap-10 max-w-3xl mx-auto">
+      <div className=" grid sm:grid-cols-3 lg:grid-cols-2 gap-10 max-w-3xl mx-auto">
         {projects.map((project, index) => (
           <div
             key={index}
@@ -75,28 +75,31 @@ function Projects() {
 
             {/* Content */}
             <div className="relative pb-6 z-10 flex flex-col justify-between h-full">
-              <div>
-                <h3 className="text-2xl px-6 pt-6 text-[#050A30] font-bold text-gold mb-4 group-hover:text-[#e36b6be5] transition hover:translate-1 underline">
-                  {project.name}
-                </h3>
-                <p className="text-[#122620] px-6 mb-6 leading-relaxed">
-                  {project.description}
-                </p>
-              </div>
               <div className="">
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full inline-block relative text-white bg-[#1E3A8A] mb-6 text-center  font-semibold tracking-wide shadow-lg transition-all"
-                >
-                  {" "}
-                  <img
-                    className=" mb-0"
-                    src={project.image}
-                    alt={project.name}
-                  />
-                </a>
+                <div className="p-4 rounded-2xl">
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full inline-block relative text-white bg-[#1E3A8A] mb-6 text-center  font-semibold tracking-wide shadow-lg transition-all"
+                  >
+                    {" "}
+                    <img
+                      className=" mb-0 rounded-2xl"
+                      src={project.image}
+                      alt={project.name}
+                    />
+                  </a>
+                </div>
+
+                <div>
+                  <h3 className="text-2xl px-6 pt-6 text-[#050A30] font-extrabold text-gold mb-4 group-hover:text-[#e36b6be5] transition hover:translate-1 underline">
+                    {project.name}
+                  </h3>
+                  <p className="text-[#122620] px-6 mb-6 leading-relaxed">
+                    {project.description}
+                  </p>
+                </div>
               </div>
               <a
                 href={project.link}

@@ -1,5 +1,6 @@
 import React, { useRef, useMemo, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
 
 // =====================
@@ -128,18 +129,7 @@ function MorphingConstellation() {
   const count = 300;
   const maxDistance = 1.2;
 
-  const shapes = [
-    "sphere",
-    "torus",
-    "cube",
-    "pyramid",
-    "spiderWeb", // 🕸️ web moment
-    "wave",
-    "spiralGalaxy",
-    "doubleHelix",
-    "starburst",
-    "flower",
-  ];
+  const shapes = ["sphere", "cube", "pyramid", "spiderWeb", "wave", "helix"];
 
   const [shapeIndex, setShapeIndex] = useState(0);
   const currentShape = useMemo(
@@ -229,7 +219,7 @@ function MorphingConstellation() {
     lineRef.current.geometry.setDrawRange(0, lineIndex / 3);
     lineRef.current.geometry.attributes.position.needsUpdate = true;
 
-    // Extra motion for group
+    // Group motion
     groupRef.current.rotation.y += 0.002;
     groupRef.current.rotation.x = Math.sin(clock.elapsedTime * 0.1) * 0.1;
 
@@ -241,8 +231,8 @@ function MorphingConstellation() {
       lineRef.current.material.color.set("#ffffff");
       lineRef.current.material.opacity = 1;
     } else {
-      lineRef.current.material.color.set("#ffffff");
-      lineRef.current.material.opacity = 0.7;
+      lineRef.current.material.color.set("#FFFFFF");
+      lineRef.current.material.opacity = 0.6;
     }
   });
 
@@ -258,7 +248,13 @@ function MorphingConstellation() {
             itemSize={3}
           />
         </bufferGeometry>
-        <pointsMaterial size={0.06} color="#FFFFFF" />
+        <pointsMaterial
+          size={0.08}
+          color="#FFFFFF"
+          sizeAttenuation={true}
+          transparent={true}
+          opacity={0.9}
+        />
       </points>
 
       {/* Connecting Lines */}
@@ -271,12 +267,15 @@ function MorphingConstellation() {
             itemSize={3}
           />
         </bufferGeometry>
-        <lineBasicMaterial color="#00AFFF" transparent opacity={0.3} />
+        <lineBasicMaterial color="#FFFFFF" transparent opacity={0.3} />
       </lineSegments>
     </group>
   );
 }
 
+// =====================
+// Canvas Wrapper
+// =====================
 export default function ConstellationCanvas() {
   return (
     <Canvas
@@ -285,11 +284,16 @@ export default function ConstellationCanvas() {
         inset: 0,
         zIndex: 15,
         pointerEvents: "none",
+        background: "#ffffff",
       }}
-      camera={{ position: [0, 0, 6], fov: 75 }}
+      camera={{ position: [0, 0, 8], fov: 75 }}
     >
-      <ambientLight intensity={0.5} />
+      <fog attach="fog" args={["#000000", 5, 15]} />
+      <ambientLight intensity={0.3} />
+      <pointLight position={[5, 5, 5]} intensity={1.2} color="#00aaff" />
+      <pointLight position={[-5, -5, -5]} intensity={0.8} color="#ff00ff" />
       <MorphingConstellation />
+      <OrbitControls enableZoom={true} />
     </Canvas>
   );
 }

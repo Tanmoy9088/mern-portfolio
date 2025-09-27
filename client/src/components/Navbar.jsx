@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-scroll";
 import { HiMenu, HiX } from "react-icons/hi";
-import AnimatedLink from "./AnimatedLink";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,75 +12,81 @@ function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const menuItems = ["HOME", "BIO", "PROJECTS", "CONTACT"];
+
   return (
     <nav
-      className={`fixed top-0 w-full h-16 z-50 transition-colors hover:bg-[#F9F6F0] text-[#e8e4da] duration-300 ${
-      isScrolled
-  ? "bg-[#C4AE78] backdrop-blur-sm hover:bg-[] text-[#e8e4da]"
-  : "bg-transparent hover:bg-[#f9f6f2] hover:text-[#e9e1d8] text-[#171515]"
-
+      className={`fixed top-0 w-full h-16 z-50 transition-colors duration-300 ${
+        isScrolled
+          ? "bg-[#C4AE78] backdrop-blur-sm text-[#e8e4da]"
+          : "bg-transparent text-[#171515]"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo */}
-        <div className="absolute top-1 left-4 space-x-2 p-2 rounded-md ">
-          <a
-            className="flex items-center"
-            href="https://tanmoy9088-portfolio-3eym.vercel.app"
+        <a
+          href="/"
+          className="flex items-center absolute top-1 left-4 space-x-2 p-2 rounded-md"
+        >
+          <div
+            className={`w-10 h-10 inline-block rounded-sm overflow-hidden hover:scale-110 transition-transform hover:rotate-12 ${
+              isScrolled ? "rounded-lg" : ""
+            }`}
           >
-            <div className={` w-10 h-10 inline-block rounded-sm overflow-hidden hover:scale-110 transition-transform hover:rotate-12 ${ isScrolled? "rounded-lg":""}`}>
-              <img className={`${isScrolled?"rounded-4xl": ""}`} src="/tanmoy_das_(3).png" alt="logo" />
-            </div>
-            <div
-              className={`text-2xl inline-block mx-2 font-light tracking-widest relative group cursor-pointer ${
-                isScrolled ? "text-[#000000]" : "text-[#453304]"
-              }`}
-            >
-              {[..."TANMOY"].map((letter, i) => (
-                <span
-                  key={i}
-                  className="inline-block transition-all duration-300 transform group-hover:-translate-y-1 group-hover:opacity-80 "
-                  style={{ transitionDelay: `${i * 50}ms` }}
-                >
-                  {letter}
-                </span>
-              ))}
-
-              {/* Underline */}
-              <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-current transition-all duration-300 group-hover:w-full"></span>
-            </div>
-          </a>
-        </div>
+            <img
+              className={`${isScrolled ? "rounded-4xl" : ""}`}
+              src="/tanmoy_das_(3).png"
+              alt="logo"
+            />
+          </div>
+          <div
+            className={`text-2xl inline-block mx-2 font-light tracking-widest relative group cursor-pointer ${
+              isScrolled ? "text-black" : "text-[#453304]"
+            }`}
+          >
+            {[..."TANMOY"].map((letter, i) => (
+              <span
+                key={i}
+                className="inline-block transition-all duration-300 transform group-hover:-translate-y-1 group-hover:opacity-80"
+                style={{ transitionDelay: `${i * 50}ms` }}
+              >
+                {letter}
+              </span>
+            ))}
+            {/* Underline effect */}
+            <span className="absolute left-1/2 -translate-x-1/2 bottom-0 w-0 h-[2px] bg-current transition-all duration-300 group-hover:w-full"></span>
+          </div>
+        </a>
 
         {/* Desktop Menu */}
         <div className="absolute right-5 top-5 hidden md:flex space-x-10 font-light">
-          {["HOME", "BIO", "PROJECTS", "CONTACT"].map((section) => (
+          {menuItems.map((section) => (
             <Link
               key={section}
               to={section}
               spy={true}
               smooth={true}
-              duration={500}
+              duration={300}
               offset={-70}
-              activeClass="active"
-              className={`font-medium ${
-                isScrolled ? "text-[#171515]" : "text-[#67420d]"
+              activeClass="active-link"
+              className={`relative font-medium cursor-pointer after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-current after:transition-all after:duration-300 hover:after:w-full ${
+                isScrolled ? "text-[#171515] hover:text-blue-500" : "text-[#67420d]"
               }`}
             >
-              <AnimatedLink text={section} />
+              {section}
             </Link>
           ))}
         </div>
 
         {/* Mobile Menu Button */}
         <button
-          className="absolute right-0 top-2 md:hidden text-white"
+          className="absolute right-0 top-2 md:hidden"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? (
-            <HiX className="h-6 w-6" />
+            <HiX className="h-6 w-6 text-white" />
           ) : (
-            <HiMenu className="h-6 w-6 hover:text-[#cca43b]" />
+            <HiMenu className="h-6 w-6 text-white hover:text-[#cca43b]" />
           )}
         </button>
       </div>
@@ -93,7 +98,7 @@ function Navbar() {
         }`}
       >
         <div className="flex flex-col items-center space-y-4 text-white font-light">
-          {["BIO", "PROJECTS", "CONTACT"].map((section) => (
+          {menuItems.slice(1).map((section) => (
             <Link
               key={section}
               to={section}
@@ -102,7 +107,8 @@ function Navbar() {
               duration={500}
               offset={-70}
               onClick={() => setIsOpen(false)}
-              className="hover:text-yellow-400 transition-colors duration-200"
+              activeClass="active-link"
+              className="relative cursor-pointer after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-yellow-400 after:transition-all after:duration-300 hover:after:w-full"
             >
               {section}
             </Link>
