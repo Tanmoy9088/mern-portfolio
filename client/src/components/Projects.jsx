@@ -5,7 +5,10 @@ import TaskManager from "/TaskManager.png";
 import MyPortfolio from "/MyPortfolio.png";
 import GuessMyNumber from "/GuessMyNumber.png";
 import TinDog from "/TinDog.png";
-import weatherApp from "/weatherApp1.png";
+import weatherApp from "/weatherApp2.png";
+import { SiGithub, SiLinkfire } from "react-icons/si";
+import { FaLink } from "react-icons/fa";
+import { FaLinkSlash } from "react-icons/fa6";
 
 const projects = [
   {
@@ -19,7 +22,7 @@ const projects = [
     name: "My Portfolio",
     image: MyPortfolio,
     description:
-      "A weather forecast app providing real-time conditions and updates.",
+      "A modern simple portfolio website. The technologies used in this project are React.js TailwindCSS and Node.js. ",
     link: "https://tanmoy9088-portfolio-3eym.vercel.app",
   },
   {
@@ -59,11 +62,11 @@ function Projects() {
       </div>
 
       {/* Project Grid */}
-      <div className=" grid sm:grid-cols-3 lg:grid-cols-2 gap-10 max-w-3xl mx-auto">
+      <div className=" grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
         {projects.map((project, index) => (
           <div
             key={index}
-            className="group relative border-2 border-blue-600/20 rounded-2xl shadow-lg overflow-hidden hover:shadow-yellow-400 transition-all duration-300 hover:scale-105"
+            className="group min-w-[150px] grid grid-col-1 relative border-2 border-blue-600/20 rounded-xl mb-8 shadow-lg overflow-hidden hover:shadow-yellow-400 transition-all duration-300 hover:scale-105"
             // style={{
             //   backgroundImage: `url(${project.image})`,
             //   backgroundSize: "cover",
@@ -74,18 +77,18 @@ function Projects() {
             <div className="absolute inset-0 bg-[#f3f3f7] group-hover:bg-[#f3f3f6] transition"></div>
 
             {/* Content */}
-            <div className="relative pb-6 z-10 flex flex-col justify-between h-full">
+            <div className="relative pb-6 z-10 flex flex-col justify-between">
               <div className="">
-                <div className="p-4 rounded-2xl">
+                <div className="">
                   <a
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full inline-block relative text-white bg-[#1E3A8A] mb-6 text-center  font-semibold tracking-wide shadow-lg transition-all"
+                    className="w-full inline-block relative text-white mb-2 text-center font-semibold tracking-wide h-48 overflow-hidden shadow-lg transition-all"
                   >
                     {" "}
                     <img
-                      className=" mb-0 rounded-2xl"
+                      className=" mb-0 "
                       src={project.image}
                       alt={project.name}
                     />
@@ -93,22 +96,58 @@ function Projects() {
                 </div>
 
                 <div>
-                  <h3 className="text-2xl px-6 pt-6 text-[#050A30] font-extrabold text-gold mb-4 group-hover:text-[#e36b6be5] transition hover:translate-1 underline">
+                  <h3 className="projecth3 text-center text-2xl px-6 pt-6 text-[#050A30] font-extrabold text-gold mb-4 group-hover:text-[#0c10effd] transition hover:translate-1">
                     {project.name}
                   </h3>
+
                   <p className="text-[#122620] px-6 mb-6 leading-relaxed">
                     {project.description}
                   </p>
                 </div>
               </div>
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block relative text-white bg-[#1E3A8A] w-48 m-auto text-center py-2 px-6 rounded-md font-semibold tracking-wide shadow-lg group-hover:bg-[#E64A19] hover:shadow-orange-400/50 transition-all"
-              >
-                View Project
-              </a>
+              <div className="mx-auto w-full flex justify-between px-4 gap-8">
+                <div className="flex gap-4 justify-between items-center relative text-white bg-[#1E3A8A] w-32 text-center py-2 px-2  rounded-md font-semibold tracking-wide shadow-lg group-hover:bg-[#0c10effd] hover:shadow-orange-400/50 transition-all">
+                  <div>
+                    {" "}
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="after-"
+                    >
+                      Live Link
+                    </a>
+                  </div>
+                  <div className="">
+                    {" "}
+                    <a href={project.link}>
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 512 512"
+                        class="inline text-xs"
+                        height="1em"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z"></path>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+                <div className="flex justify-between">
+                  {" "}
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block relative text-white bg-[#121213] w-8 m-auto text-center py-2 px-2 rounded-full font-semibold tracking-wide shadow-lg group-hover:bg-[#88898cfd] hover:shadow-orange-400/50 transition-all"
+                  >
+                    <SiGithub />
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         ))}

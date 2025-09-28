@@ -122,14 +122,14 @@ function Footer() {
       {showTopButton && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-2 right-2 z-50 bg-yellow-400 hover:bg-yellow-500 text-black p-3 rounded-full shadow-xl transition-transform transform hover:scale-110"
+          className="fixed bottom-2 right-2 z-50 bg-yellow-400/50 hover:bg-yellow-500 text-black p-3 rounded-full shadow-xl transition-transform transform hover:scale-110"
           aria-label="Back to top"
         >
           <svg
-            className="w-2 h-2 transition-transform duration-300 group-hover:-translate-y-1"
+            className="w-4 h-2 transition-transform duration-300 group-hover:-translate-y-1"
             fill="none"
             stroke="currentColor"
-            strokeWidth="2"
+            strokeWidth="8"
             viewBox="0 0 24 24"
           >
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />

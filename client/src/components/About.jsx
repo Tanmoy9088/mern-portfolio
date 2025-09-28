@@ -1,7 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { FaReact, FaNodeJs, FaHtml5, FaCss3Alt } from "react-icons/fa";
+import {
+  FaReact,
+  FaNodeJs,
+  FaHtml5,
+  FaCss3Alt,
+  FaGit,
+  FaAws,
+  FaPooStorm,
+} from "react-icons/fa";
 import { IoLogoJavascript } from "react-icons/io";
-import { SiExpress, SiMongodb, SiTailwindcss } from "react-icons/si";
+import { SiExpress, SiGithub, SiMongodb, SiNextdotjs, SiPostman, SiTailwindcss, SiTypescript } from "react-icons/si";
 
 function About() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -61,6 +69,48 @@ function About() {
       hover: "hover:bg-blue-400",
       label: "CSS3",
     },
+    {
+      icon: <SiTypescript />,
+      color: "text-blue-400",
+      hover: "hover:bg-blue-400",
+      label: "TypeScript",
+    },
+    {
+      icon: <FaCss3Alt />,
+      color: "text-blue-400",
+      hover: "hover:bg-blue-400",
+      label: "CSS3",
+    },
+    {
+      icon: <SiNextdotjs/>,
+      color: "text-blue-400",
+      hover: "hover:bg-blue-400",
+      label: "NEXT.JS",
+    },
+    {
+      icon: <SiPostman />,
+      color: "text-blue-400",
+      hover: "hover:bg-blue-400",
+      label: "Postman",
+    },
+    {
+      icon: <FaAws />,
+      color: "text-blue-400",
+      hover: "hover:bg-blue-400",
+      label: "aws",
+    },
+    {
+      icon: <FaGit />,
+      color: "text-blue-400",
+      hover: "hover:bg-blue-400",
+      label: "git",
+    },
+    {
+      icon: <SiGithub />,
+      color: "text-blue-400",
+      hover: "hover:bg-blue-400",
+      label: "Github",
+    },
   ];
 
   return (
@@ -68,16 +118,20 @@ function About() {
       id="BIO"
       className={`py-24 px-6 transition-all duration-500 ${
         isScrolled
-          ? "bg-[#F9F6F0] text-[#171515]"
-          : "bg-[#cfcece] text-[#B3B3B3]"
+          ? "bg-[#f9f6f0] text-[#171515]"
+          : "bg-[#cfcece] text-[#fffdfd]"
       }`}
     >
       {/* Bio Header */}
       <div className="max-w-4xl mx-auto text-center mb-12">
         <span className="heading-sec__main">About Me</span>
-        <p className={`text-lg font-light max-w-2xl mx-auto text-gray-900 leading-relaxed animate-fadeInUp${isScrolled? "": ""}`}>
-          I’m <span className="font-semibold">Tanmoy</span>, a passionate{" "}
-          <span className="font-semibold">Full-Stack MERN Developer</span> who
+        <p
+          className={`text-lg font-light max-w-2xl mx-auto text-gray-900 leading-relaxed animate-fadeInUp${
+            isScrolled ? "" : ""
+          }`}
+        >
+          I’m <span className="font-semibold text-blue-700">Tanmoy</span>, a passionate{" "}
+          <span className="font-semibold text-blue-700">Full-Stack MERN Developer</span> who
           thrives on building fast, scalable, and visually appealing web
           applications. I love transforming ideas into functional products that
           balance clean design with efficient, maintainable code.
@@ -87,7 +141,7 @@ function About() {
       {/* Details */}
       <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto mb-16">
         <div className="p-6 rounded-xl shadow-lg backdrop-blur-md hover:shadow-yellow-500/30 transition text-[#122620] bg-[#E9EAEC]">
-          <h3 className="text-2xl font-semibold mb-4">My Journey</h3>
+          <h3 className="abouth3 text-2xl font-semibold mb-4">My Journey</h3>
           <p className="text-lg text-[#000000] leading-relaxed">
             My coding journey began with small experiments—simple websites,
             interactive games, and tools that made daily life easier. That
@@ -100,7 +154,7 @@ function About() {
         </div>
 
         <div className="p-6 rounded-xl shadow-lg backdrop-blur-md hover:shadow-yellow-500/30 transition bg-[#E9EAEC]">
-          <h3 className="text-2xl font-semibold mb-4">Beyond Coding</h3>
+          <h3 className="abouth3 text-2xl font-semibold mb-4">Beyond Coding</h3>
           <p className="text-lg text-black leading-relaxed">
             When I’m not coding, I’m capturing moments through{" "}
             <span className="font-semibold">photography</span>, playing{" "}
@@ -113,21 +167,19 @@ function About() {
 
       {/* Skills Section */}
       <div className="text-center">
-        <span className="heading-sec__main">
-          Skills
-        </span>
+        <span className="heading-sec__main">Skills</span>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 max-w-4xl mx-auto">
           {skills.map((skill, idx) => (
             <div
               key={idx}
-              className={`group p-6 bg-[#6699CC] rounded-lg shadow-md hover:shadow-xl transition-all transform hover:scale-105 ${skill.hover}`}
+              className={`group p-6 bg-[hsl(40,20%,95%)] shadow-md hover:shadow-xl transition-all transform hover:scale-105 ${skill.hover}`}
             >
               <div
                 className={`${skill.color} text-6xl mx-auto mb-4 group-hover:text-white transition-colors duration-300`}
               >
                 {skill.icon}
               </div>
-              <h4 className="text-xl font-clean font-semibold text-[#F9F6F0] group-hover:text-white transition-colors duration-300">
+              <h4 className="text-xl font-clean font-semibold text-[#100f0f] group-hover:text-white transition-colors duration-300">
                 {skill.label}
               </h4>
             </div>
