@@ -7,22 +7,27 @@ import { FaGithub, FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
 function Hero() {
-    const texts = ["Hello, I’m Tanmoy Das", "A Full Stack Web Developer", "A Designer", "A Programmer"]; // cycle between these
+  const texts = [
+    "Hello, I’m Tanmoy Das",
+    // "A Full Stack Web Developer",
+    // "A Designer",
+    // "A Programmer",
+  ]; // cycle between these
   const [index, setIndex] = useState(0);
-  const [fade, setFade] = useState(true);
+  // const [fade, setFade] = useState(false);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      // fade out first
-      setFade(false);
-      setTimeout(() => {
-        setIndex((prev) => (prev + 1) % texts.length);
-        setFade(true);
-      }, 500); // fade duration
-    }, 3000); // change every 3s
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     // fade out first
+  //     setFade(false);
+  //     setTimeout(() => {
+  //       setIndex((prev) => (prev + 1) % texts.length);
+  //       setFade(true);
+  //     }, 500); // fade duration
+  //   }, 3000); // change every 3s
 
-    return () => clearInterval(interval);
-  }, [texts.length]);
+  //   return () => clearInterval(interval);
+  // }, [texts.length]);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [hue, setHue] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -59,7 +64,7 @@ function Hero() {
       className="relative h-screen w-full flex items-center justify-center overflow-hidden text-[#1D1D1D] bg-[#868B8E]"
     >
       {/* 🟡 Particle Background */}
-      <ParticlesCanvas hue={hue} />
+      {/* <ParticlesCanvas hue={hue} /> */}
 
       {/* 🎯 Color-Shifting Spotlight */}
       <div
@@ -75,8 +80,8 @@ function Hero() {
       ></div>
 
       {/* 🔲 Light Overlay */}
-      <div className="absolute inset-0 z-0 bg-[#F9F6F0]"></div>
-      <div className="h-32 fixed left-2 flex flex-col justify-evenly z-50 lg:flex bg-amber-200 p-4 rounded-2xl">
+      <div className="absolute inset-0 z-0 bg-[#c2cad0]"></div>
+      <div className="h-32 invisible md:visible  md:absolute left-2 flex flex-col justify-evenly z-50 bg-[#c2b9b0] p-4 rounded-2xl">
         <div>
           {" "}
           <a
@@ -114,16 +119,28 @@ function Hero() {
         {/* <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
   <path fill="#FF0066" d="M59.5,-40.2C75.1,-27.9,84.4,-3.3,76.4,11.8C68.5,26.9,43.4,32.5,23.2,38.6C2.9,44.7,-12.5,51.3,-29.5,48.2C-46.6,45,-65.3,32.1,-65.7,18.4C-66.1,4.7,-48.3,-9.8,-34.3,-21.8C-20.3,-33.7,-10.1,-43.1,5.9,-47.9C22,-52.6,43.9,-52.6,59.5,-40.2Z" transform="translate(100 100)" />
 </svg> */}
-        <h1 className="hero-h1 animate-heading chonburi-regular sm:text-6xl md:text-7xl font-extrabold text-[#1e280d] drop-shadow-lg animate-float">
-      {" "}
-      <span
-        className={`text-5xl paint-highlight chonburi-regular text-[hsl(0,38%,26%)] transition-opacity duration-500 ${
-          fade ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        {texts[index]}
-      </span>
-    </h1>
+        <h1 className="hero-h1 chonburi-regular sm:text-2xl md:text-6xl font-extrabold text-[#1e280d] drop-shadow-lg animate-float">
+          {" "}
+          <div
+            className={`text-2xl inline-block mx-2 font-light tracking-widest relative group cursor-pointer ${
+              isScrolled ? "text-[#a7c9e2]" : "text-[#306491]"
+            }`}
+          >
+            {[..."TANMOY DAS"].map((letter, i) => (
+              <span
+                key={i}
+                className={`inline-block transition-all duration-500
+        ${letter === " " ? "w-6" : "opacity-100 animate-drop"}`}
+                style={{ animationDelay: `${i * 100}ms` }}
+              >
+                {letter}
+              </span>
+            ))}
+
+            {/* Underline effect */}
+            <span className="absolute left-1/2 -translate-x-1/2 bottom-0 w-0 h-[2px] bg-current transition-all duration-300 group-hover:w-full"></span>
+          </div>
+        </h1>
 
         <p className="animate-heading mt-6 sm:text-xl text-[#0f0a24] max-w-2xl mx-auto animate-fadeInUp delay-200">
           Crafting immersive and futuristic web experiences with precision and
@@ -139,7 +156,6 @@ function Hero() {
           View My Work
         </Link>
       </div>
-      
 
       {/* 🌊 Cinematic Bottom Shape */}
       <svg
@@ -148,7 +164,7 @@ function Hero() {
         preserveAspectRatio="none"
       >
         <path
-          fill={`${isScrolled ? "#C4AE78" : "#6F5B3E"}`}
+          fill={`${isScrolled ? "#e7717d" : "#afd275"}`}
           fillOpacity="1"
           d="M0,160L40,149.3C80,139,160,117,240,122.7C320,128,400,160,480,176C560,192,640,192,720,186.7C800,181,880,171,960,170.7C1040,171,1120,181,1200,186.7C1280,192,1360,192,1400,192L1440,192V320H0Z"
         ></path>
