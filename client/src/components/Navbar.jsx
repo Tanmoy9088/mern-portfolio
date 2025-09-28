@@ -18,7 +18,7 @@ function Navbar() {
     <nav
       className={`fixed top-0 w-full h-16 z-50 transition-colors duration-300 ${
         isScrolled
-          ? "bg-[#C4AE78] backdrop-blur-sm text-[#e8e4da]"
+          ? "bg-[#E7717D] backdrop-blur-sm text-[#e8e4da]"
           : "bg-transparent text-[#171515]"
       }`}
     >
@@ -26,7 +26,7 @@ function Navbar() {
         {/* Logo */}
         <a
           href="/"
-          className="flex items-center absolute top-1 left-4 space-x-2 p-2 rounded-md"
+          className="flex items-center absolute top-1 left-4 space-x-2 p-2 rounded-md bg-black"
         >
           <div
             className={`w-10 h-10 inline-block rounded-sm overflow-hidden hover:scale-110 transition-transform hover:rotate-12 ${
@@ -41,7 +41,7 @@ function Navbar() {
           </div>
           <div
             className={`text-2xl inline-block mx-2 font-light tracking-widest relative group cursor-pointer ${
-              isScrolled ? "text-black" : "text-[#453304]"
+              isScrolled ? "text-[#C2CAD0] bg-black" : "text-[#bb2fcb]"
             }`}
           >
             {[..."TANMOY"].map((letter, i) => (
@@ -70,7 +70,7 @@ function Navbar() {
               offset={-70}
               activeClass="active-link"
               className={`relative font-medium cursor-pointer after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-current after:transition-all after:duration-300 hover:after:w-full ${
-                isScrolled ? "text-[#171515] hover:text-blue-500" : "text-[#67420d]"
+                isScrolled ? "text-[#C2CAD0] hover:text-black" : "text-[#e7717d]"
               }`}
             >
               {section}

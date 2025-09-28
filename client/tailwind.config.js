@@ -8,6 +8,15 @@ export default {
         classy: ['"Playfair Display"', "serif"],
         clean: ["Inter", "sans-serif"],
       },
+      keyframes: {
+        drop: {
+          "0%": { transform: "translateY(-20px)", opacity: "0" },
+          "100%": { transform: "translateY(0)", opacity: "1" },
+        },
+      },
+      animation: {
+        drop: "drop 0.5s ease forwards",
+      },
     },
   },
   plugins: [],

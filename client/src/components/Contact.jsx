@@ -50,7 +50,7 @@ function Contact() {
       <div className="relative z-10 max-w-6xl w-full grid md:grid-cols-2 gap-12 items-center">
         {/* Left: Heading */}
         <div className="text-[#122620] space-y-6">
-          <h1 className="md:text-6xl font-bold leading-tight">
+          <h1 className="contact-h1 font-bold leading-tight">
             Let’s Create <br /> Something Amazing
           </h1>
           <p className="text-[#252222] max-w-md">
