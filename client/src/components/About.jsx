@@ -9,7 +9,21 @@ import {
   FaPooStorm,
 } from "react-icons/fa";
 import { IoLogoJavascript } from "react-icons/io";
-import { SiExpress, SiGithub, SiMongodb, SiNextdotjs, SiPostman, SiTailwindcss, SiTypescript } from "react-icons/si";
+import {
+  SiBootstrap,
+  SiExpress,
+  SiGit,
+  SiGithub,
+  SiGnubash,
+  SiMongodb,
+  SiNextdotjs,
+  SiPostgresql,
+  SiPostman,
+  SiPycharm,
+  SiPython,
+  SiTailwindcss,
+  SiTypescript,
+} from "react-icons/si";
 
 function About() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -40,6 +54,12 @@ function About() {
       label: "React.js",
     },
     {
+      icon: <SiNextdotjs />,
+      color: "text-black",
+      hover: "hover:bg-black",
+      label: "NEXT.JS",
+    },
+    {
       icon: <FaNodeJs />,
       color: "text-green-500",
       hover: "hover:bg-green-500",
@@ -52,10 +72,22 @@ function About() {
       label: "TailwindCSS",
     },
     {
+      icon: <SiBootstrap />,
+      color: "text-violet-600",
+      hover: "hover:bg-black",
+      label: "BootStrap",
+    },
+    {
       icon: <IoLogoJavascript />,
       color: "text-yellow-500",
       hover: "hover:bg-yellow-500",
       label: "JavaScript",
+    },
+    {
+      icon: <SiTypescript />,
+      color: "text-blue-500",
+      hover: "hover:bg-blue-400",
+      label: "TypeScript",
     },
     {
       icon: <FaHtml5 />,
@@ -69,28 +101,18 @@ function About() {
       hover: "hover:bg-blue-400",
       label: "CSS3",
     },
+
     {
-      icon: <SiTypescript />,
-      color: "text-blue-400",
-      hover: "hover:bg-blue-400",
-      label: "TypeScript",
+      icon: <SiPostgresql />,
+      color: "text-blue-900",
+      hover: "hover:bg-blue-900",
+      label: "PostgreSQL",
     },
-    {
-      icon: <FaCss3Alt />,
-      color: "text-blue-400",
-      hover: "hover:bg-blue-400",
-      label: "CSS3",
-    },
-    {
-      icon: <SiNextdotjs/>,
-      color: "text-blue-400",
-      hover: "hover:bg-blue-400",
-      label: "NEXT.JS",
-    },
+
     {
       icon: <SiPostman />,
-      color: "text-blue-400",
-      hover: "hover:bg-blue-400",
+      color: "text-orange-500",
+      hover: "hover:bg-orange-500",
       label: "Postman",
     },
     {
@@ -100,16 +122,28 @@ function About() {
       label: "aws",
     },
     {
-      icon: <FaGit />,
-      color: "text-blue-400",
-      hover: "hover:bg-blue-400",
+      icon: <SiGit />,
+      color: "text-orange-600",
+      hover: "hover:bg-orange-600",
       label: "git",
     },
     {
       icon: <SiGithub />,
-      color: "text-blue-400",
-      hover: "hover:bg-blue-400",
+      color: "text-black",
+      hover: "hover:bg-black",
       label: "Github",
+    },
+    {
+      icon: <SiPycharm />,
+      color: "text-black",
+      hover: "hover:bg-black",
+      label: "Pycharm",
+    },
+    {
+      icon: <SiPython />,
+      color: "text-black",
+      hover: "hover:bg-black",
+      label: "Python",
     },
   ];
 
@@ -130,9 +164,12 @@ function About() {
             isScrolled ? "" : ""
           }`}
         >
-          I’m <span className="font-semibold text-blue-700">Tanmoy</span>, a passionate{" "}
-          <span className="font-semibold text-blue-700">Full-Stack MERN Developer</span> who
-          thrives on building fast, scalable, and visually appealing web
+          I’m <span className="font-semibold text-blue-700">Tanmoy</span>, a
+          passionate{" "}
+          <span className="font-semibold text-blue-700">
+            Full-Stack MERN Developer
+          </span>{" "}
+          who thrives on building fast, scalable, and visually appealing web
           applications. I love transforming ideas into functional products that
           balance clean design with efficient, maintainable code.
         </p>
@@ -189,6 +226,7 @@ function About() {
         <div className="mt-16 text-center">
           <a
             href="/WebDevResume5.pdf"
+            target="_blank"
             className="inline-block bg-gold bg-[#DC2626] text-white py-3 px-8 rounded-xl font-semibold tracking-wide shadow-lg hover:bg-[#171515]/70 hover:text-[#f9f6f0] hover:shadow-gold/50 transition-all"
           >
             View My Resume
