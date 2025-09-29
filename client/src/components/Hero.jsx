@@ -120,10 +120,10 @@ function Hero() {
   <path fill="#FF0066" d="M59.5,-40.2C75.1,-27.9,84.4,-3.3,76.4,11.8C68.5,26.9,43.4,32.5,23.2,38.6C2.9,44.7,-12.5,51.3,-29.5,48.2C-46.6,45,-65.3,32.1,-65.7,18.4C-66.1,4.7,-48.3,-9.8,-34.3,-21.8C-20.3,-33.7,-10.1,-43.1,5.9,-47.9C22,-52.6,43.9,-52.6,59.5,-40.2Z" transform="translate(100 100)" />
 </svg> */}
         <h1 className="hero-h1 chonburi-regular sm:text-2xl md:text-6xl font-extrabold text-[#1e280d] drop-shadow-lg animate-float">
-          {" "}
+          {"Hi, I'M "}
           <div
             className={`text-2xl inline-block mx-2 font-light tracking-widest relative group cursor-pointer ${
-              isScrolled ? "text-[#a7c9e2]" : "text-[#306491]"
+              isScrolled ? "text-[#a7c9e2]" : "text-[#5432b0]"
             }`}
           >
             {[..."TANMOY DAS"].map((letter, i) => (
