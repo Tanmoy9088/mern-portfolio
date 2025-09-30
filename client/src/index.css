@@ -71,17 +71,17 @@ button:focus-visible {
 }
 
 h1 {
-  font-size: 50px;
+  font-size: 4rem;
   line-height: 1.1;
   font-family: "Georgia", serif;
   font-weight: bold;
 }
-.conntact-h1 {
-  font-size: 150px;
+.contact-h1 {
+  font-size: 3rem;
   line-height: 1.1;
   font-family: "Georgia", serif;
   font-weight: bold;
-  color: red;
+  /* color: red; */
 }
 .hero-h1{
   font-size: 4rem;
@@ -326,6 +326,10 @@ p {
     font-size: 1.5rem;
   }
 .hero-h1{
+  font-size: 2.5rem;
+
+}
+.hero-h1 span{
   font-size: 2.5rem;
 
 }
