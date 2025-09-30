@@ -8,7 +8,7 @@ import { FaXTwitter } from "react-icons/fa6";
 
 function Hero() {
   const texts = [
-    "Hello, I’m Tanmoy Das",
+    // "Hello, I’m Tanmoy Das",
     // "A Full Stack Web Developer",
     // "A Designer",
     // "A Programmer",
@@ -129,8 +129,8 @@ function Hero() {
             {[..."TANMOY DAS"].map((letter, i) => (
               <span
                 key={i}
-                className={`inline-block transition-all duration-500
-        ${letter === " " ? "w-6" : "opacity-100 animate-drop"}`}
+                className={`inline w-full transition-all duration-500
+        ${letter === " " ? "w-2" : "opacity-100 animate-drop"}`}
                 style={{ animationDelay: `${i * 100}ms` }}
               >
                 {letter}
