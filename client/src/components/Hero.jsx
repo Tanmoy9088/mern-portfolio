@@ -70,7 +70,7 @@ function Hero() {
       <div
         className="absolute inset-0 pointer-events-none z-10"
         style={{
-              background: `radial-gradient(
+          background: `radial-gradient(
             400px at ${mousePos.x}px ${mousePos.y}px,
             hsla(${hue}, 100%, 65%, 0.15),
             rgba(255,255,255,0.9)
@@ -120,12 +120,12 @@ function Hero() {
   <path fill="#FF0066" d="M59.5,-40.2C75.1,-27.9,84.4,-3.3,76.4,11.8C68.5,26.9,43.4,32.5,23.2,38.6C2.9,44.7,-12.5,51.3,-29.5,48.2C-46.6,45,-65.3,32.1,-65.7,18.4C-66.1,4.7,-48.3,-9.8,-34.3,-21.8C-20.3,-33.7,-10.1,-43.1,5.9,-47.9C22,-52.6,43.9,-52.6,59.5,-40.2Z" transform="translate(100 100)" />
 </svg> */}
         <h1 className="hero-h1 chonburi-regular sm:text-2xl md:text-6xl font-extrabold text-[#111827] drop-shadow-lg animate-float">
-          {"Hi, I'M "}
           <div
             className={`text-2xl inline-block mx-2 font-light tracking-widest relative group cursor-pointer ${
               isScrolled ? "text-[#0f0a24]" : "text-[#1E3A8A]"
             }`}
           >
+            <h1> Hi, I'M</h1>
             {[..."TANMOY DAS"].map((letter, i) => (
               <span
                 key={i}
@@ -151,7 +151,7 @@ function Hero() {
           to="PROJECTS"
           smooth={true}
           duration={600}
-          className="inline-block mt-10 px-8 py-3 bg-[#1E3A8A] text-[#ffffff] hover:text-[#f9dd51] font-semibold rounded-md hover:shadow-[0_0_10px_#514A00] transition-all hover:scale-105"
+          className="inline-block mt-10 px-8 py-3 bg-[#1E3A8A] text-[#ffffff] hover:text-yellow-400 font-semibold rounded-md hover:shadow-lg hover:shadow-yellow-400/50 transition-all hover:scale-105"
         >
           View My Work
         </Link>
@@ -164,7 +164,7 @@ function Hero() {
         preserveAspectRatio="none"
       >
         <path
-          fill={`${isScrolled ? '#3B82F6' : "#1E3A8A"}`}
+          fill={`${isScrolled ? "#3B82F6" : "#1E3A8A"}`}
           fillOpacity="1"
           d="M0,160L40,149.3C80,139,160,117,240,122.7C320,128,400,160,480,176C560,192,640,192,720,186.7C800,181,880,171,960,170.7C1040,171,1120,181,1200,186.7C1280,192,1360,192,1400,192L1440,192V320H0Z"
         ></path>
