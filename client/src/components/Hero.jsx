@@ -61,7 +61,7 @@ function Hero() {
   return (
     <section
       id="HOME"
-      className="relative h-screen w-full flex items-center justify-center overflow-hidden text-[#1D1D1D] bg-[#868B8E]"
+      className="relative h-screen w-full flex items-center justify-center overflow-hidden text-[#1D1D1D] bg-[#F9FAFB]"
     >
       {/* 🟡 Particle Background */}
       {/* <ParticlesCanvas hue={hue} /> */}
@@ -70,18 +70,18 @@ function Hero() {
       <div
         className="absolute inset-0 pointer-events-none z-10"
         style={{
-          //     background: `radial-gradient(
-          //   400px at ${mousePos.x}px ${mousePos.y}px,
-          //   hsla(${hue}, 100%, 65%, 0.15),
-          //   rgba(255,255,255,0.9)
-          // )`,
+              background: `radial-gradient(
+            400px at ${mousePos.x}px ${mousePos.y}px,
+            hsla(${hue}, 100%, 65%, 0.15),
+            rgba(255,255,255,0.9)
+          )`,
           transition: "background 0.05s",
         }}
       ></div>
 
       {/* 🔲 Light Overlay */}
-      <div className="absolute inset-0 z-0 bg-[#c2cad0]"></div>
-      <div className="h-32 invisible md:visible  md:absolute left-2 flex flex-col justify-evenly z-50 bg-[#c2b9b0] p-4 rounded-2xl">
+      {/* <div className="absolute inset-0 z-0 bg-[#F9FAFB]"></div> */}
+      <div className="h-32 invisible md:visible  md:absolute left-2 flex flex-col justify-evenly z-50 bg-white/80 p-4 rounded-xl shadow-lg">
         <div>
           {" "}
           <a
@@ -119,11 +119,11 @@ function Hero() {
         {/* <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
   <path fill="#FF0066" d="M59.5,-40.2C75.1,-27.9,84.4,-3.3,76.4,11.8C68.5,26.9,43.4,32.5,23.2,38.6C2.9,44.7,-12.5,51.3,-29.5,48.2C-46.6,45,-65.3,32.1,-65.7,18.4C-66.1,4.7,-48.3,-9.8,-34.3,-21.8C-20.3,-33.7,-10.1,-43.1,5.9,-47.9C22,-52.6,43.9,-52.6,59.5,-40.2Z" transform="translate(100 100)" />
 </svg> */}
-        <h1 className="hero-h1 chonburi-regular sm:text-2xl md:text-6xl font-extrabold text-[#1e280d] drop-shadow-lg animate-float">
+        <h1 className="hero-h1 chonburi-regular sm:text-2xl md:text-6xl font-extrabold text-[#111827] drop-shadow-lg animate-float">
           {"Hi, I'M "}
           <div
             className={`text-2xl inline-block mx-2 font-light tracking-widest relative group cursor-pointer ${
-              isScrolled ? "text-[#a7c9e2]" : "text-[#5432b0]"
+              isScrolled ? "text-[#0f0a24]" : "text-[#1E3A8A]"
             }`}
           >
             {[..."TANMOY DAS"].map((letter, i) => (
@@ -142,7 +142,7 @@ function Hero() {
           </div>
         </h1>
 
-        <p className="animate-heading mt-6 sm:text-xl text-[#0f0a24] max-w-2xl mx-auto animate-fadeInUp delay-200">
+        <p className="animate-heading mt-6 sm:text-xl text-[#374151] max-w-2xl mx-auto animate-fadeInUp delay-200">
           Crafting immersive and futuristic web experiences with precision and
           style.
         </p>
@@ -164,7 +164,7 @@ function Hero() {
         preserveAspectRatio="none"
       >
         <path
-          fill={`${isScrolled ? "#e7717d" : "#afd275"}`}
+          fill={`${isScrolled ? '#3B82F6' : "#1E3A8A"}`}
           fillOpacity="1"
           d="M0,160L40,149.3C80,139,160,117,240,122.7C320,128,400,160,480,176C560,192,640,192,720,186.7C800,181,880,171,960,170.7C1040,171,1120,181,1200,186.7C1280,192,1360,192,1400,192L1440,192V320H0Z"
         ></path>
