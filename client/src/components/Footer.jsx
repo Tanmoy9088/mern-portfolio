@@ -53,11 +53,20 @@ function Footer() {
 
       {/* Brand / About */}
       <div className="text-left relative z-10 max-w-6xl mx-auto px-6">
-        <h4 className="text-3xl font-bold mb-4">TANMOY DAS</h4>
-        <p className="text-gray-300 mb-10 max-w-xl">
+        <h4 className="inline text-3xl font-bold mb-4">TANMOY DAS</h4>
+        <p className="mt-4 text-gray-300 mb-10 max-w-xl">
           Passionate MERN Stack Developer 🚀. Building scalable apps and
           interactive UIs with React, Node.js, MongoDB, and more.
         </p>
+        {/* Footer Content */}
+        <div className="text-right">
+          <h2 className="text-2xl font-bold mb-2 text-yellow-400">
+            Let’s Connect
+          </h2>
+          <p className="text-gray-300 mb-6">
+            Open to opportunities, collaborations, or just a friendly chat 👋.
+          </p>
+        </div>
 
         {/* Social Links */}
         <h3 className="font-medium text-lg text-right mb-6">SOCIAL MEDIA</h3>
@@ -100,16 +109,6 @@ function Footer() {
 
         <hr className="mb-6 h-px bg-gray-600 border-0" />
 
-        {/* Footer Content */}
-        <div className="text-center">
-          <h2 className="text-2xl font-bold mb-2 text-yellow-400">
-            Let’s Connect
-          </h2>
-          <p className="text-gray-300 max-w-md mx-auto mb-6">
-            Open to opportunities, collaborations, or just a friendly chat 👋.
-          </p>
-        </div>
-
         {/* Copyright */}
         <p className="text-center text-gray-400 text-sm">
           © {new Date().getFullYear()}{" "}
@@ -132,7 +131,11 @@ function Footer() {
             strokeWidth="8"
             viewBox="0 0 24 24"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M5 15l7-7 7 7"
+            />
           </svg>
         </button>
       )}
