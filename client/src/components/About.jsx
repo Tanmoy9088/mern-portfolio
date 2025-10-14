@@ -152,8 +152,8 @@ function About() {
       id="BIO"
       className={`py-24 px-6 transition-all duration-500 ${
         isScrolled
-          ? "bg-[#f9f6f0] text-[#171515]"
-          : "bg-[#cfcece] text-[#fffdfd]"
+          ? "bg-[#F3F4F6] text-[#171515]"
+          : "bg-[#E5E7EB] text-[text-gray-900]"
       }`}
     >
       {/* Bio Header */}
@@ -164,9 +164,9 @@ function About() {
             isScrolled ? "" : ""
           }`}
         >
-          I’m <span className="font-semibold text-blue-700">Tanmoy</span>, a
+          I’m <span className="font-semibold text-[#1E3A8A]">Tanmoy</span>, a
           passionate{" "}
-          <span className="font-semibold text-blue-700">
+          <span className="font-semibold text-[#1E3A8A]">
             Full-Stack MERN Developer
           </span>{" "}
           who thrives on building fast, scalable, and visually appealing web
@@ -177,7 +177,7 @@ function About() {
 
       {/* Details */}
       <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto mb-16">
-        <div className="p-6 rounded-xl shadow-lg backdrop-blur-md hover:shadow-yellow-500/30 transition text-[#122620] bg-[#E9EAEC]">
+        <div className="p-6 rounded-xl shadow-lg backdrop-blur-md hover:shadow-yellow-400/50 transition text-[#122620] bg-[white]">
           <h3 className="abouth3 text-2xl font-semibold mb-4">My Journey</h3>
           <p className="text-lg text-[#000000] leading-relaxed">
             My coding journey began with small experiments—simple websites,
@@ -209,14 +209,14 @@ function About() {
           {skills.map((skill, idx) => (
             <div
               key={idx}
-              className={`group p-6 bg-[hsl(40,20%,95%)] shadow-md hover:shadow-xl transition-all transform hover:scale-105 ${skill.hover}`}
+              className={`group p-6 rounded-tl-[35%] rounded-br-[45%] rounded-bl-[30%] rounded-tr-[20%] bg-[white] shadow-md hover:shadow-xl transition-all transform hover:scale-105 ${skill.hover}`}
             >
               <div
                 className={`${skill.color} text-6xl mx-auto mb-4 group-hover:text-white transition-colors duration-300`}
               >
                 {skill.icon}
               </div>
-              <h4 className="text-xl font-clean font-semibold text-[#100f0f] group-hover:text-white transition-colors duration-300">
+              <h4 className="text-xl font-clean font-semibold text-gray-900 group-hover:text-white transition-colors duration-300">
                 {skill.label}
               </h4>
             </div>
@@ -227,7 +227,7 @@ function About() {
           <a
             href="/WebDevResume5.pdf"
             target="_blank"
-            className="inline-block bg-gold bg-[#DC2626] text-white py-3 px-8 rounded-xl font-semibold tracking-wide shadow-lg hover:bg-[#171515]/70 hover:text-[#f9f6f0] hover:shadow-gold/50 transition-all"
+            className="inline-block bg-gold bg-[#1E3A8A] text-white py-3 px-8 rounded-xl font-semibold tracking-wide shadow-lg hover:bg-[#0f214f] hover:text-yellow-400 hover:shadow-gold/50 transition-all duration-100"
           >
             View My Resume
           </a>
