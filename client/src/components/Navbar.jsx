@@ -22,15 +22,15 @@ function Navbar() {
     <nav
       className={`fixed scroll-smooth top-0 w-full h-18 z-50 transition-colors duration-300 ${
         isScrolled
-          ? "bg-[#E7717D] backdrop-blur-sm text-[#e8e4da]"
-          : "bg-transparent text-[#171515]"
+          ? "bg-[#1E3A8A] backdrop-blur-sm text-[white]"
+          : "bg-transparent text-gray-900"
       }`}
     >
       <div className="mx-auto px-2 md:px-8 py-2 flex items-center justify-between">
         {/* Logo */}
         <a
           href="/"
-          className={`flex items-center space-x-2 p-2 rounded-md bg-black Hero `}
+          className={`flex items-center space-x-2 p-2 rounded-md ${isScrolled?'bg-transparent':'bg-white shadow-md'} Hero `}
         >
           <div
             className={`w-10 h-10 rounded-sm overflow-hidden hover:scale-110 transition-transform hover:rotate-12 ${
@@ -45,7 +45,7 @@ function Navbar() {
           </div>
           <div
             className={`text-2xl mx-2 font-light tracking-widest relative group cursor-pointer ${
-              isScrolled ? "text-[#C2CAD0] bg-black" : "text-[#bb2fcb] "
+              isScrolled ? "text-[white]" : "text-[#1E3A8A] "
             }`}
           >
             {[..."TANMOY"].map((letter, i) => (
@@ -74,8 +74,8 @@ function Navbar() {
               activeClass="active-link"
               className={`relative font-medium cursor-pointer after:content-[''] after:absolute after:left-1/2 after:-translate-x-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-current after:transition-all after:duration-300 hover:after:w-full ${
                 isScrolled
-                  ? "text-[#C2CAD0] hover:text-black"
-                  : "text-[#e7717d]"
+                  ? "text-[#C2CAD0] hover:text-yellow-400"
+                  : "text-[#1E3A8A]"
               }`}
             >
               {section}
@@ -117,7 +117,7 @@ function Navbar() {
           ))}
         </div>
       </div>
-      <ToogleDarkMode />
+      {/* <ToogleDarkMode /> */}
     </nav>
   );
 }
