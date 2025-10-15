@@ -126,16 +126,19 @@ function Hero() {
             }`}
           >
             <h1> Hi, I'M</h1>
-            {[..."TANMOY DAS"].map((letter, i) => (
-              <span
-                key={i}
-                className={`inline w-full transition-all duration-500
+
+            <span class="relative inline-block before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-yellow-400">
+              {[..."TANMOY DAS"].map((letter, i) => (
+                <span
+                  key={i}
+                  className={`relative inline w-full transition-all duration-500
         ${letter === " " ? "w-2" : "opacity-100 animate-drop"}`}
-                style={{ animationDelay: `${i * 100}ms` }}
-              >
-                {letter}
-              </span>
-            ))}
+                  style={{ animationDelay: `${i * 100}ms` }}
+                >
+                  {letter}
+                </span>
+              ))}
+            </span>
 
             {/* Underline effect */}
             <span className="absolute left-1/2 -translate-x-1/2 bottom-0 w-0 h-[2px] bg-current transition-all duration-300 group-hover:w-full"></span>

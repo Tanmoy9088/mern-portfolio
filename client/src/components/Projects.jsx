@@ -66,7 +66,7 @@ function Projects() {
         {projects.map((project, index) => (
           <div
             key={index}
-            className="group min-w-[150px] grid grid-col-1 relative border-2 border-blue-600/20 rounded-xl mb-8 shadow-lg overflow-hidden hover:shadow-yellow-400 transition-all duration-300 hover:scale-105"
+            className="group min-w-[150px] grid grid-col-1 relative border-2 border-blue-600/20 rounded-xl mb-8 shadow-lg overflow-hidden hover:shadow-yellow-400 transition-all duration-300 hover:scale-110 hover:z-5000 "
             // style={{
             //   backgroundImage: `url(${project.image})`,
             //   backgroundSize: "cover",

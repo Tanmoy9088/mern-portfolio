@@ -8,8 +8,6 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-
-
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", onScroll);
@@ -30,7 +28,9 @@ function Navbar() {
         {/* Logo */}
         <a
           href="/"
-          className={`flex items-center space-x-2 p-2 rounded-md ${isScrolled?'bg-transparent':'bg-white shadow-md'} Hero `}
+          className={`flex items-center space-x-2 p-2 rounded-md ${
+            isScrolled ? "bg-transparent" : "bg-white shadow-md"
+          } Hero `}
         >
           <div
             className={`w-10 h-10 rounded-sm overflow-hidden hover:scale-110 transition-transform hover:rotate-12 ${
@@ -38,16 +38,17 @@ function Navbar() {
             }`}
           >
             <img
-              className={`${isScrolled ? "rounded-4xl" : ""}`}
+              className={`${isScrolled ? "rounded-4xl border-2 border-yellow-400" : "border-2 border-blue-600"}`}
               src="/tanmoy_das_(3).png"
               alt="logo"
             />
           </div>
           <div
-            className={`text-2xl mx-2 font-light tracking-widest relative group cursor-pointer ${
+            className={`text-2xl font-light tracking-widest relative group cursor-pointer ${
               isScrolled ? "text-[white]" : "text-[#1E3A8A] "
             }`}
           >
+         
             {[..."TANMOY"].map((letter, i) => (
               <span
                 key={i}
@@ -57,7 +58,11 @@ function Navbar() {
                 {letter}
               </span>
             ))}
+               <span className="after:border-1 after:bg-yellow-400 after:rounded-full after:inline-block after:w-1.5 after:h-1.5 after:text-blue-400 after:content-[''] ">
+              {""}
+            </span>
             <span className="absolute left-1/2 -translate-x-1/2 bottom-0 w-0 h-[2px] bg-current transition-all duration-300 group-hover:w-full"></span>
+            
           </div>
         </a>
 
