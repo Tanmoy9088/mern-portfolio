@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-scroll";
 import { HiMenu, HiX } from "react-icons/hi";
-import ToogleDarkMode from "./ToogleDarkMode";
+// import ToogleDarkMode from "./ToogleDarkMode";
 
 function Navbar() {
   const [darkMode, setDarkMode] = useState(false);
