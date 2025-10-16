@@ -294,7 +294,7 @@ p {
   width: 3rem;
   left: 50%;
   transform: translateX(-50%);
-  background: rgb(120, 67, 233);
+  background: #f6e05e;
   border-radius: 5px;
 }
 

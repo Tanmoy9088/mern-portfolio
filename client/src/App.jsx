@@ -19,7 +19,7 @@ function App() {
         <Projects />
         <Contact />
         <Footer />
-        <Chatbot/>
+        <Chatbot />
       </main>
     </>
   );

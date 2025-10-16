@@ -80,7 +80,7 @@ function About() {
     {
       icon: <IoLogoJavascript />,
       color: "text-yellow-500",
-      hover: "hover:bg-yellow-500",
+      hover: "hover:bg-yellow-400",
       label: "JavaScript",
     },
     {
@@ -190,7 +190,7 @@ function About() {
           </p>
         </div>
 
-        <div className="p-6 rounded-xl shadow-lg backdrop-blur-md hover:shadow-yellow-500/30 transition bg-[#E9EAEC]">
+        <div className="p-6 rounded-xl shadow-lg backdrop-blur-md hover:shadow-yellow-500/30 transition bg-[white]">
           <h3 className="abouth3 text-2xl font-semibold mb-4">Beyond Coding</h3>
           <p className="text-lg text-black leading-relaxed">
             When I’m not coding, I’m capturing moments through{" "}
@@ -209,7 +209,7 @@ function About() {
           {skills.map((skill, idx) => (
             <div
               key={idx}
-              className={`group p-6 rounded-tl-[35%] rounded-br-[45%] rounded-bl-[30%] rounded-tr-[20%] bg-[white] shadow-md hover:shadow-xl transition-all transform hover:scale-105 ${skill.hover}`}
+              className={`group p-6 rounded-tl-[35%] rounded-br-[45%] rounded-bl-[30%] rounded-tr-[20%] bg-[white/99] shadow-md hover:shadow-xl transition-all transform hover:scale-105 ${skill.hover}`}
             >
               <div
                 className={`${skill.color} text-6xl mx-auto mb-4 group-hover:text-white transition-colors duration-300`}
