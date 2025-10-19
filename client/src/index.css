@@ -83,6 +83,14 @@ h1 {
   font-weight: bold;
   /* color: red; */
 }
+.contact-h1 > span {
+  font-size: 3rem;
+  line-height: 1.1;
+  font-family: "Georgia", serif;
+  font-weight: bold;
+  font-style: italic;
+  /* color: red; */
+}
 .hero-h1{
   font-size: 4rem;
 
