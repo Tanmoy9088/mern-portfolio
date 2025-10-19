@@ -105,7 +105,7 @@ function Navbar() {
         }`}
       >
         <div className="flex flex-col items-center space-y-4 text-white font-light">
-          {menuItems.slice(1).map((section) => (
+          {menuItems.map((section) => (
             <Link
               key={section}
               to={section}

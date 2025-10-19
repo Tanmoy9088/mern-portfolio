@@ -51,7 +51,7 @@ function Contact() {
         {/* Left: Heading */}
         <div className="text-[#122620] space-y-6">
           <h1 className="contact-h1 font-bold leading-tight">
-            Let’s Create <br /> Something <span className="text-yellow-400 text-shadow-sm text-shadow-blue-800">Amazing</span>
+            Let’s Create <br /> Something <span className=" text-yellow-400 text-shadow-sm text-shadow-blue-800">Amazing</span>
           </h1>
           <p className="text-[#252222] max-w-md">
             Whether you have a question, want to start a project, or simply want
