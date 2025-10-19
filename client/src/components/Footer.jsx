@@ -55,7 +55,7 @@ function Footer() {
       <div className="text-left relative z-10 max-w-6xl mx-auto px-6">
         <h4 className="inline text-3xl font-bold mb-4">TANMOY DAS</h4>
         <p className="mt-4 text-gray-300 mb-10 max-w-xl">
-          Passionate MERN Stack Developer 🚀. Building scalable apps and
+          Passionate MERN Stack Developer 🧑‍💻. Building scalable apps and
           interactive UIs with React, Node.js, MongoDB, and more.
         </p>
         {/* Footer Content */}
@@ -110,9 +110,9 @@ function Footer() {
         <hr className="mb-6 h-px bg-gray-600 border-0" />
 
         {/* Copyright */}
-        <p className="text-center text-gray-400 text-sm">
+        <p className="text-center text-gray-400 text-md">
           © {new Date().getFullYear()}{" "}
-          <span className="font-semibold text-white">Tanmoy9088</span>. Built
+          <span className="font-semibold text-white">Tanmoy</span>. Built
           with ❤️ using React & Tailwind CSS.
         </p>
       </div>

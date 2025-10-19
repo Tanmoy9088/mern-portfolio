@@ -24,6 +24,9 @@ import {
   SiTailwindcss,
   SiTypescript,
 } from "react-icons/si";
+import { motion } from 'framer-motion';
+import {Download, ChevronsDown} from 'lucide-react';
+
 
 function About() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -146,94 +149,169 @@ function About() {
       label: "Python",
     },
   ];
+  // --- Animation Variants ---
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15, // Delay between child animations
+    },
+  },
+};
+
+const slideInVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
+
+const skillsContainerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.07, // Small delay between each skill tile
+      delayChildren: 0.2,    // Delay before the first tile starts
+    },
+  },
+};
+
+const skillItemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 10
+    },
+  },
+};
+
 
   return (
-    <section
-      id="BIO"
-      className={`py-24 px-6 transition-all duration-500 ${
-        isScrolled
-          ? "bg-[#F3F4F6] text-[#171515]"
-          : "bg-[#E5E7EB] text-[text-gray-900]"
-      }`}
+   <motion.section
+  className="max-w-5xl mx-auto py-16 px-4 sm:px-6 lg:px-8"
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of section is visible
+  variants={containerVariants}
+>
+  {/* Primary "About Me" Header and Text - Sliding Font Effect */}
+  <motion.div 
+    className="max-w-4xl mx-auto text-center mb-12"
+    variants={slideInVariants} // Animate the header block
+  >
+    <span className="heading-sec__main text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
+      About Me
+    </span>
+    <p
+      className="mt-4 text-xl font-light max-w-2xl mx-auto text-gray-700 leading-relaxed"
     >
-      {/* Bio Header */}
-      <div className="max-w-4xl mx-auto text-center mb-12">
-        <span className="heading-sec__main">About Me</span>
-        <p
-          className={`text-lg font-light max-w-2xl mx-auto text-gray-900 leading-relaxed animate-fadeInUp${
-            isScrolled ? "" : ""
-          }`}
-        >
-          I’m <span className="font-semibold text-[#1E3A8A]">Tanmoy</span>, a
-          passionate{" "}
-          <span className="font-semibold text-[#1E3A8A]">
-            Full-Stack MERN Developer
-          </span>{" "}
-          who thrives on building fast, scalable, and visually appealing web
-          applications. I love transforming ideas into functional products that
-          balance clean design with efficient, maintainable code.
-        </p>
-      </div>
+      I’m <span className="font-semibold text-blue-800">Tanmoy</span>, a
+      passionate{" "}
+      <span className="font-semibold text-blue-800">
+        Full-Stack MERN Developer
+      </span>{" "}
+      who thrives on building fast, scalable, and visually appealing web
+      applications. I love transforming ideas into functional products that
+      balance clean design with efficient, maintainable code.
+    </p>
+  </motion.div>
 
-      {/* Details */}
-      <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto mb-16">
-        <div className="p-6 rounded-xl shadow-lg backdrop-blur-md hover:shadow-yellow-400/50 transition text-[#122620] bg-[white]">
-          <h3 className="abouth3 text-2xl font-semibold mb-4">My Journey</h3>
-          <p className="text-lg text-[#000000] leading-relaxed">
-            My coding journey began with small experiments—simple websites,
-            interactive games, and tools that made daily life easier. That
-            curiosity evolved into a deep focus on{" "}
-            <span className="font-semibold">
-              modern, high-performance web experiences
-            </span>
-            .
-          </p>
-        </div>
+  {/* Details Grid - Animated Divs */}
+  <motion.div
+    className="grid md:grid-cols-2 gap-8 mt-10"
+    variants={containerVariants} // Use container to stagger children
+  >
+    {/* My Journey Card */}
+    <motion.div 
+      className="p-8 rounded-xl shadow-xl border border-gray-100 backdrop-blur-md bg-white/80 hover:shadow-yellow-500/50 transition duration-300 transform hover:-translate-y-1"
+      variants={slideInVariants} // Animate this card
+    >
+      <h3 className="text-2xl font-semibold mb-4 text-gray-900">My Journey</h3>
+      <p className="text-lg text-gray-700 leading-relaxed">
+        My coding journey began with small experiments—simple websites,
+        interactive games, and tools that made daily life easier. That
+        curiosity evolved into a deep focus on{" "}
+        <span className="font-semibold text-gray-900">
+          modern, high-performance web experiences
+        </span>
+        .
+      </p>
+    </motion.div>
 
-        <div className="p-6 rounded-xl shadow-lg backdrop-blur-md hover:shadow-yellow-500/30 transition bg-[white]">
-          <h3 className="abouth3 text-2xl font-semibold mb-4">Beyond Coding</h3>
-          <p className="text-lg text-black leading-relaxed">
-            When I’m not coding, I’m capturing moments through{" "}
-            <span className="font-semibold">photography</span>, playing{" "}
-            <span className="font-semibold">football</span>, or strategizing
-            over <span className="font-semibold">chess</span>. Creativity comes
-            from exploring beyond the screen.
-          </p>
-        </div>
-      </div>
+    {/* Placeholder Card (You can replace this with "My Stack" or "My Philosophy") */}
+    <motion.div 
+      className="p-8 rounded-xl shadow-xl border border-gray-100 backdrop-blur-md bg-white/80 hover:shadow-yellow-500/50 transition duration-300 transform hover:-translate-y-1"
+      variants={slideInVariants} // Animate this card
+    >
+      <h3 className="text-2xl font-semibold mb-4 text-gray-900">My Focus</h3>
+      <p className="text-lg text-gray-700 leading-relaxed">
+        I am currently focused on Next.js performance optimization and building scalable Node.js backends, ensuring every project delivers a great user experience and technical excellence.
+      </p>
+    </motion.div>
+  </motion.div>
+
 
       {/* Skills Section */}
-      <div className="text-center">
-        <span className="heading-sec__main">Skills</span>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 max-w-4xl mx-auto">
-          {skills.map((skill, idx) => (
-            <div
-              key={idx}
-              className={`group p-6 rounded-tl-[35%] rounded-br-[45%] rounded-bl-[30%] rounded-tr-[20%] bg-[white/99] shadow-md hover:shadow-xl transition-all transform hover:scale-105 ${skill.hover}`}
-            >
-              <div
-                className={`${skill.color} text-6xl mx-auto mb-4 group-hover:text-white transition-colors duration-300`}
-              >
-                {skill.icon}
-              </div>
-              <h4 className="text-xl font-clean font-semibold text-gray-900 group-hover:text-white transition-colors duration-300">
-                {skill.label}
-              </h4>
-            </div>
-          ))}
+     <motion.div 
+  className="text-center py-16"
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true, amount: 0.1 }} // Trigger animation when section scrolls into view
+  variants={skillsContainerVariants}
+>
+  <span className="heading-sec__main text-4xl font-extrabold tracking-tight text-gray-900 mb-12 inline-block">
+    Skills
+  </span>
+
+  <motion.div 
+    className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 max-w-4xl mx-auto"
+    variants={skillsContainerVariants} // Apply container variants to the grid
+  >
+    {skills.map((skill, idx) => (
+      <motion.div
+        key={idx}
+        className={`group p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02] 
+                    bg-white/95 border border-gray-100 backdrop-blur-sm 
+                    ${skill.hover.replace('hover:bg-', 'hover:border-')} `} 
+        variants={skillItemVariants} // Apply item variants to each skill tile
+        style={{
+          // Simplifying the complex border radius for cleaner maintenance
+          borderRadius: '30% 20% 40% 15% / 20% 35% 15% 40%', 
+        }}
+      >
+        <div
+          className={`${skill.color} text-5xl sm:text-6xl mx-auto mb-3 group-hover:text-white transition-colors duration-300`}
+        >
+          {skill.icon} {/* Assume this is an actual icon component or character */}
         </div>
-        {/* Resume Button */}
-        <div className="mt-16 text-center">
-          <a
-            href="/WebDevResume5.pdf"
-            target="_blank"
-            className="inline-block bg-gold bg-[#1E3A8A] text-white py-3 px-8 rounded-xl font-semibold tracking-wide shadow-lg hover:bg-[#0f214f] hover:text-yellow-400 hover:shadow-gold/50 transition-all duration-100"
-          >
-            View My Resume
-          </a>
-        </div>
-      </div>
-    </section>
+        <h4 className="text-lg sm:text-xl font-semibold text-gray-900 group-hover:text-white transition-colors duration-300">
+          {skill.label}
+        </h4>
+      </motion.div>
+    ))}
+  </motion.div>
+
+  {/* Resume Button - Enhanced */}
+  <div className="mt-16 text-center">
+    <motion.a
+      href="/WebDevResume5.pdf"
+      target="_blank"
+      className="inline-flex items-center space-x-3 bg-[#1E3A8A] text-white py-4 px-10 rounded-full font-bold text-lg 
+                 tracking-wide shadow-xl transition-all duration-300 
+                 hover:bg-[#0f214f] hover:text-yellow-400 hover:shadow-2xl hover:shadow-[#1E3A8A]/50"
+      whileHover={{ scale: 1.05, boxShadow: '0 10px 25px rgba(30, 58, 138, 0.4)' }}
+      whileTap={{ scale: 0.95 }}
+    >
+      <Download size={22} /> {/* Using Lucide icon for download */}
+      <span>View My Resume</span>
+    </motion.a>
+  </div>
+</motion.div>
+    </motion.section>
   );
 }
 

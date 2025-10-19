@@ -52,7 +52,7 @@ function Projects() {
     <section id="PROJECTS" className="py-24 px-6 bg-[#f2f1ec] text-[#2b2b2b]">
       {/* Header */}
       <div className="max-w-4xl mx-auto text-center mb-12">
-        <span className="heading-sec__main uppercase hover:text-[#294aaaf8] text-xl animate-heading text-gold tracking-wide mb-6">
+        <span className="heading-sec__main text-4xl font-extrabold tracking-tight text-gray-900 mb-12 inline-block">
           Projects
         </span>
         <p className="text-lg font-clean font-light text-gray-600 max-w-2xl mx-auto leading-relaxed">
