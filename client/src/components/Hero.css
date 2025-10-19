@@ -153,9 +153,10 @@ p{
 }
 h1{
   font-weigth:800;
+  font-size: 4rem;
 }
  .hero-h1 span{
-    font-size:60px;
+    font-size:4rem;
     margin:auto;
   }
 @media(max-width: 480px){
