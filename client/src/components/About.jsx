@@ -192,7 +192,7 @@ const skillItemVariants = {
 
   return (
    <motion.section
-  className="max-w-5xl mx-auto py-16 px-4 sm:px-6 lg:px-8"
+  className="w-full mx-auto py-16 px-4 sm:px-6 lg:px-8 bg-[#f2f1ec]"
   initial="hidden"
   whileInView="visible"
   viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of section is visible
@@ -284,11 +284,11 @@ const skillItemVariants = {
         }}
       >
         <div
-          className={`${skill.color} text-5xl sm:text-6xl mx-auto mb-3 group-hover:text-white transition-colors duration-300`}
+          className={`${skill.color} text-5xl sm:text-6xl mx-auto mb-3  transition-colors duration-300`}
         >
           {skill.icon} {/* Assume this is an actual icon component or character */}
         </div>
-        <h4 className="text-lg sm:text-xl font-semibold text-gray-900 group-hover:text-white transition-colors duration-300">
+        <h4 className="text-lg sm:text-xl font-semibold text-gray-900  transition-colors duration-300">
           {skill.label}
         </h4>
       </motion.div>
