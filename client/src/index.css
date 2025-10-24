@@ -3,7 +3,7 @@
 =========================== */
 @import "tailwindcss";
 @tailwind utilities;
-
+/* import 'locomotive-scroll/dist/locomotive-scroll.css'; */
 /* Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap");
@@ -11,33 +11,22 @@
 /* ===========================
    Base & Global Styles
 =========================== */
-html {
-  scroll-behavior: smooth;
-
-  /* System font stack fallback */
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 body {
+  cursor: none; /* This is the most important step */
+  overflow-x: hidden;
+}
+[data-scroll-container] {
+  overflow: hidden !important; 
+}
+/* body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
   font-family: "Verdana", sans-serif;
 
   /* Tailwind utility classes applied */
-  @apply bg-white text-gray-800 font-sans antialiased;
-}
+  /* @apply bg-white text-gray-800 font-sans antialiased;
+} */ 
 
 a {
   font-weight: 500;
@@ -91,41 +80,46 @@ h1 {
   font-style: italic;
   /* color: red; */
 }
-.hero-h1{
-  font-size: 4rem;
-
-}
-.hero-h1 span{
+.hero-h1 {
   font-size: 4rem;
 }
-h2 {
+.hero-h1 span {
+  font-size: 4rem;
+}
+/* h2 {
   font-size: 25px;
   line-height: 1.1;
   font-family: "Georgia", serif;
   font-weight: bold;
-}
-h3 {
+} */
+/* h3 {
   font-size: 20px;
   line-height: 1.1;
   font-family: "Georgia", serif;
   font-weight: 400;
 }
-.abouth3{
-  font-size:1.5rem;
-  font-weight:bold;
-  color:blue;
+.projecth3 {
+  font-size: 20px;
+  line-height: 1.1;
+  font-family: "Georgia", serif;
+  font-weight: 400;
+} */
+.abouth3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: blue;
 }
-p {
-  font-size: 16px;
+/* p {
+  font-size: ;
   line-height: 1.7;
   font-family: "Georgia", serif;
   font-weight: 400;
-}
-.text-center-footer p{
+} */
+.text-center-footer p {
   font-size: 14px;
 }
-.text-left p{
-  font-size:14px;
+.text-left p {
+  font-size: 14px;
 }
 .copyright {
   font-size: 12px;
@@ -286,7 +280,7 @@ p {
 =========================== */
 .heading-sec__main {
   display: block;
-  font-size: 36px;
+  font-size: 4rem;
   text-transform: uppercase;
   letter-spacing: 3px;
   text-align: center;
@@ -333,12 +327,19 @@ p {
   h1 {
     font-size: 1.5rem;
   }
-.hero-h1{
-  font-size: 2.5rem;
-
-}
-.hero-h1 span{
-  font-size: 2.5rem;
-
-}
+  .hero-h1 {
+    font-size: 2.5rem;
+  }
+  .hero-h1 span {
+    font-size: 2.5rem;
+  }
+  .heading-sec__main {
+    display: block;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-align: center;
+    margin-bottom: 3.5rem;
+    position: relative;
+  }
 }

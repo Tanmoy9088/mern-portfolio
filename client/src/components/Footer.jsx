@@ -34,7 +34,7 @@ function Footer() {
   };
 
   return (
-    <footer className="relative bg-[#003786] text-white pt-12 pb-10 overflow-hidden">
+    <footer className="relative bg-[#003786] text-white pt-2 pb-2 overflow-hidden">
       {/* ✨ Floating Dots Animation */}
       <ul className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
         {dots.map((dot) => (
@@ -52,7 +52,7 @@ function Footer() {
       </ul>
 
       {/* Brand / About */}
-      <div className="text-left relative z-10 max-w-6xl mx-auto px-6">
+      <div className="text-left relative max-w-6xl mx-auto z-20 px-6">
         <h4 className="inline text-3xl font-bold mb-4">TANMOY DAS</h4>
         <p className="mt-4 text-gray-300 mb-10 max-w-xl">
           Passionate MERN Stack Developer 🧑‍💻. Building scalable apps and
@@ -69,14 +69,16 @@ function Footer() {
         </div>
 
         {/* Social Links */}
-        <h3 className="font-medium text-lg text-right mb-6">SOCIAL MEDIA</h3>
+        <h3 className="font-medium text-gray-100 text-lg text-right mb-6">
+          SOCIAL MEDIA
+        </h3>
         <div className="flex justify-end gap-6 text-2xl mb-8">
           <a
             href="https://github.com/Tanmoy9088"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
-            className="hover:text-black bg-gray-200/20 p-4 rounded-full hover:bg-white/40 transition-transform transform hover:scale-110"
+            className="hover:text-black bg-gray-500/80 p-4 rounded-full hover:bg-white/40 transition-transform transform hover:scale-110"
           >
             <FaGithub />
           </a>
@@ -85,7 +87,7 @@ function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
-            className="hover:text-blue-600 bg-gray-200/20 p-4 rounded-full hover:bg-white/40 transition-transform transform hover:scale-110"
+            className="hover:text-blue-600 bg-gray-500/80 p-4 rounded-full hover:bg-white/40 transition-transform transform hover:scale-110"
           >
             <FaLinkedinIn />
           </a>
@@ -94,25 +96,25 @@ function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Twitter"
-            className="hover:text-black bg-gray-200/20 p-4 rounded-full hover:bg-white/40 transition-transform transform hover:scale-110"
+            className="hover:text-black bg-gray-500/80 p-4 rounded-full hover:bg-white/40 transition-transform transform hover:scale-110"
           >
             <FaXTwitter />
           </a>
           <a
             href="mailto:tanmoyd9088@gmail.com"
             aria-label="Email"
-            className="hover:text-red-500 bg-gray-200/20 p-4 hover:bg-white/40 rounded-full transition-transform transform hover:scale-110"
+            className="hover:text-red-500 bg-gray-500/80 p-4 hover:bg-white/40 rounded-full transition-transform transform hover:scale-110"
           >
             <SiGmail />
           </a>
         </div>
 
-        <hr className="mb-6 h-px bg-gray-600 border-0" />
+        {/* <hr className="mb-6 h-px bg-gray-600 border-0" /> */}
 
         {/* Copyright */}
         <p className="text-center text-gray-400 text-md">
           © {new Date().getFullYear()}{" "}
-          <span className="font-semibold text-white">Tanmoy</span>. Built
+          <span className="font-semibold text-yellow-400">Tanmoy Das</span>. All right reserved. Built
           with ❤️ using React & Tailwind CSS.
         </p>
       </div>
@@ -125,7 +127,7 @@ function Footer() {
           aria-label="Back to top"
         >
           <svg
-            className="w-4 h-2 transition-transform duration-300 group-hover:-translate-y-1"
+            className=" w-4 h-2 transition-transform duration-300 group-hover:-translate-y-1"
             fill="none"
             stroke="currentColor"
             strokeWidth="8"
@@ -139,6 +141,33 @@ function Footer() {
           </svg>
         </button>
       )}
+      <svg
+        className=" absolute bottom-0 left-0 w-full h-24 md:h-36 z-10" // Reduced height for a smaller, cleaner look
+        viewBox="0 0 1440 220" // Adjusted viewBox to match the height
+        preserveAspectRatio="none"
+      >
+        <defs>
+          <linearGradient
+            id="waveGradientFooter"
+            x1="0%"
+            y1="0%"
+            x2="0%"
+            y2="100%"
+          >
+            {/* 1. START COLOR (Wave Peak): A slightly lighter shade of the footer's primary color (for contrast/highlight) */}
+            <stop offset="0%" stopColor="#254B98" stopOpacity="1" />
+            {/* 2. END COLOR (Wave Trough): The main footer background color (or slightly darker) */}
+            <stop offset="100%" stopColor="#1A316E" stopOpacity="1" />
+          </linearGradient>
+        </defs>
+
+        {/* 2. The Smoother Wave Path */}
+        <path
+          fill="url(#waveGradientFooter)" // Uses the simple gradient
+          // This path creates a gentle, low-profile wave
+          d="M0,150 C360,100 720,200 1080,150 C1200,125 1440,150 1440,150 L1440,240 L0,240 Z"
+        ></path>
+      </svg>
     </footer>
   );
 }

@@ -1,22 +1,27 @@
 import React from "react";
-import "./Projects.css";
-import tanmoyImg from "/tanmoy_das_(2).png";
+import { SiGithub } from "react-icons/si";
+import { FaLink } from "react-icons/fa";
+import { motion } from "framer-motion"; // Import motion for animations
+
+// NOTE: Ensure these image paths are correct in your local project setup
 import TaskManager from "/TaskManager.png";
 import MyPortfolio from "/MyPortfolio.png";
 import GuessMyNumber from "/GuessMyNumber.png";
 import TinDog from "/TinDog.png";
 import weatherApp from "/weatherApp2.png";
-import { SiGithub, SiLinkfire } from "react-icons/si";
-import { FaLink } from "react-icons/fa";
-import { FaLinkSlash } from "react-icons/fa6";
 
 const projects = [
+  // ... (Your projects array remains the same)
   {
     name: "Task Manager App",
     image: TaskManager,
     description:
       "A full-featured task management tool for tracking and organizing work efficiently.",
     link: "https://zidio-task-management-tanmoy9088.vercel.app/",
+    github: "YOUR_GITHUB_LINK_HERE", // Added for link consistency
+    rotate: "-rotate-3",
+    bgcolor: "bg-yellow-400",
+    hoverbgcolor: "hover:bg-yellow-400",
   },
   {
     name: "My Portfolio",
@@ -24,6 +29,10 @@ const projects = [
     description:
       "A modern simple portfolio website. The technologies used in this project are React.js TailwindCSS and Node.js. ",
     link: "https://tanmoy9088-portfolio-3eym.vercel.app",
+    github: "YOUR_GITHUB_LINK_HERE",
+    rotate: "rotate-1",
+    bgcolor: "bg-purple-400",
+    hoverbgcolor: "hover:bg-purple-400",
   },
   {
     name: "Guess My Number",
@@ -31,12 +40,20 @@ const projects = [
     description:
       "A fun number guessing game built with JavaScript for a quick challenge.",
     link: "https://guess-my-number-xlak.onrender.com",
+    github: "YOUR_GITHUB_LINK_HERE",
+    rotate: "-rotate-2",
+    bgcolor: "bg-rose-800",
+    hoverbgcolor: "hover:bg-rose-800",
   },
   {
     name: "Tindog",
     image: TinDog,
     description: "A Tinder-style web app for dogs to connect and find friends.",
     link: "https://tingdog-project.onrender.com",
+    github: "YOUR_GITHUB_LINK_HERE",
+    rotate: "rotate-1",
+    bgcolor: "bg-orange-500",
+    hoverbgcolor: "hover:bg-orange-400",
   },
   {
     name: "Weather App",
@@ -44,115 +61,131 @@ const projects = [
     description:
       "A weather forecast app providing real-time conditions and updates.",
     link: "https://tanmoy9088.github.io/Weather_App/",
+    github: "YOUR_GITHUB_LINK_HERE",
+    rotate: "-rotate-3",
+    bgcolor: "bg-teal-400",
+    hoverbgcolor: "hover:bg-teal-400",
   },
 ];
 
+// Framer Motion Variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15, // Stagger animation for the cards
+      delayChildren: 0.3,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 50, scale: 0.9 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      type: "spring",
+      stiffness: 80,
+    },
+  },
+};
+
 function Projects() {
   return (
-    <section id="PROJECTS" className="py-24 px-6 bg-[#f2f1ec] text-[#2b2b2b]">
+    <motion.section
+      id="PROJECTS"
+      className="relative w-full px-6 text-[#1E3A8A]" // Using Pale Mist BG
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.1 }}
+      variants={containerVariants}
+    >
       {/* Header */}
-      <div className="max-w-4xl mx-auto text-center mb-12">
-        <span className="heading-sec__main text-4xl font-extrabold tracking-tight text-gray-900 mb-12 inline-block">
-          Projects
-        </span>
-        <p className="text-lg font-clean font-light text-gray-600 max-w-2xl mx-auto leading-relaxed">
-          A showcase of the web applications I've built using the MERN stack and
-          other modern technologies.
-        </p>
-      </div>
+      <motion.div data-scroll data-scroll-speed=".4">
+        <motion.div
+          className="max-w-4xl mx-auto text-center mb-20"
+          variants={cardVariants} // Animate the header block
+        >
+          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 mb-4 inline-block">
+            Featured Projects
+          </h1>
+          <p className="text-xl font-light text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            A showcase of the web applications I've built using the MERN stack
+            and other modern technologies.
+          </p>
+        </motion.div>
 
-      {/* Project Grid */}
-      <div className=" grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
-        {projects.map((project, index) => (
-          <div
-            key={index}
-            className="group min-w-[150px] grid grid-col-1 relative border-2 border-blue-600/20 rounded-xl mb-8 shadow-lg overflow-hidden hover:shadow-yellow-400 transition-all duration-300 hover:scale-110 hover:z-5000 "
-            // style={{
-            //   backgroundImage: `url(${project.image})`,
-            //   backgroundSize: "cover",
-            //   backgroundPosition: "center",
-            // }}
-          >
-            {/* Dark Overlay */}
-            <div className="absolute inset-0 bg-[#f3f3f7] group-hover:bg-[#f3f3f6] transition"></div>
-
-            {/* Content */}
-            <div className="relative pb-6 z-10 flex flex-col justify-between">
-              <div className="">
-                <div className="">
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full inline-block relative text-white mb-2 text-center font-semibold tracking-wide h-48 overflow-hidden shadow-lg transition-all"
-                  >
-                    {" "}
+        {/* Project Grid */}
+        <motion.div
+          className="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 max-w-5xl mx-auto mb-10"
+          variants={containerVariants} // Apply stagger to the grid
+        >
+          <motion.div>
+            {projects.map((project, index) => (
+              <motion.div
+                key={index}
+                className="flex flex-col md:flex-row gap-0 md:gap-20 mb-10 md:mb-0 "
+              >
+                <motion.div
+                  className={`group relative max-h-[30rem] max-w-[40rem] mb-10 ${project.rotate} ${project.bgcolor} hover:rotate-0 bg-gray-200 p-6 rounded-xl shadow-2xl overflow-hidden cursor-pointer 
+                       border-6 border-[#F1F2F1] hover:border-black transition-all duration-300`}
+                  variants={cardVariants} // Apply card animation to each item
+                  whileHover={{
+                    scale: 1.03,
+                    boxShadow: "0 10px 30px rgba(30, 58, 138, 0.4)", // Stronger, deeper shadow
+                  }}
+                >
+                  <div className="relative max-h-full max-w-full overflow-hidden">
                     <img
-                      className=" mb-0 "
+                      className="w-full h-full object-cover border-2 border-white rounded-md transition-transform duration-300"
                       src={project.image}
                       alt={project.name}
                     />
-                  </a>
-                </div>
-
-                <div>
-                  <h3 className="projecth3 text-center text-2xl px-6 pt-6 text-[#050A30] font-extrabold text-gold mb-4 group-hover:text-[#0c10effd] transition hover:translate-1">
-                    {project.name}
-                  </h3>
-
-                  <p className="text-[#122620] px-6 mb-6 leading-relaxed">
-                    {project.description}
-                  </p>
-                </div>
-              </div>
-              <div className="mx-auto w-full flex justify-between px-4 gap-8">
-                <div className="flex gap-4 justify-between items-center relative text-white bg-[#1E3A8A] w-32 text-center py-2 px-2  rounded-md font-semibold tracking-wide shadow-lg group-hover:bg-[#0c10effd] hover:shadow-orange-400/50 transition-all">
-                  <div>
-                    {" "}
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="after-"
-                    >
-                      Live Link
-                    </a>
                   </div>
-                  <div className="">
-                    {" "}
-                    <a href={project.link}>
-                      <svg
-                        stroke="currentColor"
-                        fill="currentColor"
-                        stroke-width="0"
-                        viewBox="0 0 512 512"
-                        class="inline text-xs"
-                        height="1em"
-                        width="1em"
-                        xmlns="http://www.w3.org/2000/svg"
+                </motion.div>
+                <motion.div className="div">
+                  <div className="p-6 relative z-10">
+                    <h3 className="text-3xl font-extrabold text-[#1E3A8A] mb-2 transition-colors duration-300">
+                      {project.name}
+                    </h3>
+
+                    <p className="text-gray-600 mb-6 leading-relaxed text-md">
+                      {project.description}
+                    </p>
+
+                    <div className="flex justify-start gap-4">
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`flex items-center space-x-2 px-4 py-2 bg-[#1E3A8A] text-white rounded-full 
+                             font-semibold shadow-md transition-all duration-300 ${project.hoverbgcolor} hover:text-gray-200`}
                       >
-                        <path d="M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z"></path>
-                      </svg>
-                    </a>
+                        <FaLink />
+                        <span>Live Demo</span>
+                      </a>
+
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center space-x-2 p-3 bg-gray-800 text-white rounded-full 
+                             shadow-md transition-all duration-300 hover:bg-gray-600 hover:text-yellow-500"
+                      >
+                        <SiGithub size={20} />
+                      </a>
+                    </div>
                   </div>
-                </div>
-                <div className="flex justify-between">
-                  {" "}
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block relative text-white bg-[#121213] w-8 m-auto text-center py-2 px-2 rounded-full font-semibold tracking-wide shadow-lg group-hover:bg-[#88898cfd] hover:shadow-orange-400/50 transition-all"
-                  >
-                    <SiGithub />
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
+                </motion.div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </motion.div>
+      </motion.div>
+    </motion.section>
   );
 }
 
