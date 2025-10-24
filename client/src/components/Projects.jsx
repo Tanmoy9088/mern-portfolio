@@ -104,12 +104,12 @@ function Projects() {
       variants={containerVariants}
     >
       {/* Header */}
-      <motion.div data-scroll data-scroll-speed=".4">
+      <motion.div data-scroll data-scroll-speed=".3">
         <motion.div
           className="max-w-4xl mx-auto text-center mb-20"
           variants={cardVariants} // Animate the header block
         >
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 mb-4 inline-block">
+          <h1 className="text-[2.5rem] md:text-[4rem] font-extrabold tracking-tight text-gray-900 mb-4 inline-block">
             Featured Projects
           </h1>
           <p className="text-xl font-light text-gray-600 max-w-2xl mx-auto leading-relaxed">

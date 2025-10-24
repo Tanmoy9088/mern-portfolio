@@ -187,7 +187,7 @@ function Skills() {
   };
 
   return (
-    <section id="skills" data-scroll-section className="z-[-10] bg-[#FFFFFF]">
+    <section id="skills" data-scroll-section className="z-[-10] bg-[#FFFFFF] px-6">
       {/* Skills Section */}
       <motion.div
         data-scroll

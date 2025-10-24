@@ -62,7 +62,7 @@ function Services() {
       data-scroll-section
       data-scroll-speed=".5"
       id="SERVICES"
-      className="relative z-10 bg-[#0a62fb] text-[#f2f2f2] overflow-hidden"
+      className="relative z-10 bg-[#0a62fb] text-[#f2f2f2] overflow-hidden px-6"
       style={{ backgroundColor: "" }}
       initial="hidden"
       whileInView="visible"
@@ -73,14 +73,14 @@ function Services() {
       <motion.div
         data-scroll
         data-scroll-speed=".5"
-        className="max-w-6xl mx-auto pt-16 mb-18 relative z-20"
+        className="max-w-6xl mx-auto pt-6 md:pt-16 mb-18 relative z-20"
       >
         <motion.div variants={itemVariants} className="text-center mb-16">
-          <h2 className="text-6xl font-extrabold tracking-tight mb-10">
+          <h2 className="text-[2.5rem] md:text-[4rem] font-extrabold tracking-tight mb-10">
             My Core{" "}
             <span className="shadow-black text-yellow-400">Services</span>
           </h2>
-          <p className="md:text-[2rem] text-gray-100 max-w-3xl mx-auto p-2">
+          <p className="text-[1.25rem] md:text-[1.5rem] text-gray-100 max-w-3xl mx-auto p-2">
             Leveraging the MERN stack and modern development practices to
             deliver high-quality web solutions.
           </p>
